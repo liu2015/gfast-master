@@ -13,6 +13,14 @@ import (
 
 func init() {
 	gtime.SetTimeZone("Asia/Shanghai") //设置系统时区
+	// gup := (*ghttp.Server).SetClientMaxBodySize(50 * 1024 * 1024)
+	// ghttp.ServerConfig.TLSConfig.SetSessionTicketKeys(10000)
+	// ghttp.SetSessionTicketKeys(50 * 1024 * 1024)
+	// s := g.Server()
+	// s.SetConfigWithMap(g.Map{
+	// 	"ClientMaxBodySize": 50 * 1024 * 1024,
+	// })
+
 	showLogo()
 	g.Log().SetFlags(glog.F_ASYNC | glog.F_TIME_DATE | glog.F_TIME_TIME | glog.F_FILE_LONG)
 	//g.Server().SetPort(8200)

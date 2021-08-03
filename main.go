@@ -14,5 +14,10 @@ import (
 // @BasePath /system
 func main() {
 
-	g.Server().Run()
+	// 修改默认上传配置，从8兆，修改到50兆
+	s := g.Server()
+	s.SetConfigWithMap(g.Map{
+		"ClientMaxBodySize": 50 * 1024 * 1024,
+	})
+	s.Run()
 }
