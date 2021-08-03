@@ -28,6 +28,7 @@
     SessionMaxAge    = "24h"
     DumpRouterMap    = true
     NameToUriType    = 3
+    clientMaxBodySize = 52428800
 
 
 # Redis数据库配置
