@@ -1,0 +1,35 @@
+// ==========================================================================
+// 生成日期：${.table.CreateTime}
+// 生成人：${.table.FunctionAuthor}
+// ==========================================================================
+package ${.table.BusinessName}_service
+
+import (
+	${.table.BusinessName}Model "${.table.PackageName}/app/model/${.table.ModuleName}/${.table.BusinessName}"
+)
+
+
+// AddSave 添加
+func AddSave(req *${.table.BusinessName}Model.AddReq) error {
+	return ${.table.BusinessName}Model.AddSave(req)
+}
+
+// DeleteByIds 删除
+func DeleteByIds(Ids [] ${.table.PkColumn.GoType}) error {
+	return ${.table.BusinessName}Model.DeleteByIds(Ids)
+}
+
+// EditSave 修改
+func EditSave(editReq *${.table.BusinessName}Model.EditReq) error {
+	return ${.table.BusinessName}Model.EditSave(editReq)
+}
+
+// GetByID 根据ID查询
+func GetByID(id ${.table.PkColumn.GoType}) (*${.table.BusinessName}Model.Entity, error) {
+	return ${.table.BusinessName}Model.GetByID(id)
+}
+
+// SelectListByPage 分页查询
+func SelectListByPage(req *${.table.BusinessName}Model.SelectPageReq) (total int, page int, list []*${.table.BusinessName}Model.Entity, err error) {
+	return ${.table.BusinessName}Model.SelectListByPage(req)
+}
