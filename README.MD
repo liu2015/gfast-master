@@ -2,7 +2,19 @@
 * 基于GF(Go Frame)的后台管理系统
 * 前端采用ruoyi-ui 、Vue、Element UI。
 * 后端采用GO语言 框架 GF(Go Frame)。
-* 阿里云优惠券：[点我进入](https://www.aliyun.com/minisite/goods?userCode=fcor2omk )，腾讯云优惠券：[点我领取](https://cloud.tencent.com/act/cps/redirect?redirect=1062&cps_key=20b1c3842f74986b2894e2c5fcde7ea2&from=console )  
+
+
+在原来的框架基础上实现了脚本库管理
+
+
+
+
+
+
+
+
+
+
 * 本项目由奇讯科技团队开发。
 
 ## 内置功能
