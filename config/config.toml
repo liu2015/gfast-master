@@ -1,7 +1,7 @@
 # 数据库连接
 [database]
     type    =   "mysql"
-    host    =   "127.0.0.1"
+    host    =   "172.30.30.224"
     port    =   "3306"
     user    =   "root"
     pass    =   "123456"
@@ -37,7 +37,7 @@
 
 #jwt配置
 [gToken]
-    CacheMode = 2
+    CacheMode = 1
     CacheKey = "GToken:"
     Timeout = 0
     MaxRefresh = 0
