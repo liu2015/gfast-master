@@ -26,6 +26,7 @@ func init() {
 		group.ALL("/lib_log", new(module.Lib_log))
 		group.ALL("/link", new(module.Link))
 		group.ALL("/rary", new(module.Rary))
+		group.ALL("/list", new(module.List))
 
 	})
 
