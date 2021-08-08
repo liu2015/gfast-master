@@ -74,7 +74,7 @@ func List() {
 
 		listadd.SpId = v
 		listadd.Endtime = gconv.Int(currend)
-		listadd.Starttime = gconv.Int(currend)
+		listadd.Starttime = gconv.Int(current)
 		listadd.Errmsg = jsonerr.Errmsg
 		listadd.Errcode = gconv.String(jsonerr.Errcode)
 		// listadd.Sort = 1
