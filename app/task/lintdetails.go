@@ -3,7 +3,6 @@ package task
 import (
 	"encoding/json"
 	"fmt"
-	"gfast/app/task/taskdetais"
 
 	"github.com/gogf/gf/frame/g"
 )
@@ -93,9 +92,9 @@ func ListDetails(sp_no string) {
 	// 解码json转成实体
 	err = json.Unmarshal(body, &listdetais)
 
-	taskdetais.Datalink(listdetais)
+	ListData(listdetais)
 	// 获得data数据
-	ApplyData := listdetais.Info.ApplyData
+	// ApplyData := listdetais.Info.ApplyData
 
 	fmt.Println(err)
 	// 获得列的详细
