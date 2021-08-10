@@ -82,6 +82,8 @@ func List() {
 		// list.AddSave1(listadd)
 		list.AddSave1(&listadd)
 
+		ListDetails(listadd.SpId)
+
 		// // listadd.
 		// // 	list_service.AddSave()
 
