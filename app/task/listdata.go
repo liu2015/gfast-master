@@ -1,6 +1,8 @@
 package task
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // 将数据详情关键数据提取出来，并且计划存储道数据库
 func ListData(data Listdetailser) {
@@ -12,11 +14,13 @@ func ListData(data Listdetailser) {
 	// 这个时汇总的不用打印出来
 	apply_data := data.Info.ApplyData.Contents
 
-	var datatest string
+	var datatest string   //主体内容详情
+	var userid string     //填报人id
+	var useridtest string //备注人id
+	var commenttime1 int  //备注的填写时间
+	var commtest string   // 备注的详情
 
-	var useridtest string
-	var commenttime1 int
-	var commtest string
+	// var userid string //填报人id
 
 	for _, v := range apply_data {
 
@@ -26,18 +30,26 @@ func ListData(data Listdetailser) {
 		}
 
 	}
+
+	userid = data.Info.Applyer.Userid
+
 	comments1 := data.Info.Comments
 
-	for _, v := range comments1 {
+	for k, v := range comments1 {
 		useridtest = v.CommentUserInfo.Userid
 		commenttime1 = v.Commenttime
 		commtest = v.Commentcontent
+		if k > 0 {
+
+			break
+		}
 
 	}
 
 	fmt.Println("这是打印出来明细................................................................")
 
-	fmt.Println(spno, sp_name, apply_time, datatest, useridtest, commenttime1, commtest)
+	fmt.Println(spno, sp_name, apply_time, userid, datatest, useridtest, commenttime1, commtest)
+
 	fmt.Println("以上时打印出的明细................................................................")
 
 }

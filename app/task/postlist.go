@@ -68,7 +68,7 @@ func List() {
 	listvode := jsonerr.SpNoList
 
 	for _, v := range listvode {
-		fmt.Println(v)
+		// fmt.Println(v)
 		// var listadd list.AddReq
 		var listadd list.AddReq
 

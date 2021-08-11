@@ -96,8 +96,13 @@ func ListDetails(sp_no string) {
 	// 获得data数据
 	// ApplyData := listdetais.Info.ApplyData
 
-	fmt.Println(err)
+	// fmt.Println(err)
+
+	// 打印日志
+	logtest := g.Log("logger")
+	logtest.Info(listdetais)
+	// l.Debug(listdetais)
 	// 获得列的详细
-	fmt.Println(listdetais)
+	// fmt.Println(listdetais)
 
 }
