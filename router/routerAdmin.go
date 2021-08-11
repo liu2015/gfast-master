@@ -27,7 +27,7 @@ func init() {
 		group.ALL("/link", new(module.Link))
 		group.ALL("/rary", new(module.Rary))
 		group.ALL("/list", new(module.List))
-
+		group.ALL("/nolist", new(module.Nolist))
 	})
 
 	group.Group("/system", func(group *ghttp.RouterGroup) {
