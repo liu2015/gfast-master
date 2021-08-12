@@ -24,31 +24,31 @@ var (
 	Table = "sp_nolist"
 	// Model is the model object of sp_nolist.
 	Model = &arModel{g.DB("default").Model(Table).Safe()}
+
 	// Columns defines and stores column names for table sp_nolist.
 	Columns = struct {
-	
-		SpNo		string // 单号 
-		SpName		string // 单名 
-		ApplyTime		string // 发起时间 
-		Userid		string // 填报人id 
-		Datatest		string // 主体内容详情 
-		Useridtest		string // 备注人id 
-		Commenttimel		string // 备注填写时间 
-		Commtest		string // 备注的详情 
-		Spare		string // 备用 
-		Spare1		string // 备用1 
+		SpNo         string // 单号
+		SpName       string // 单名
+		ApplyTime    string // 发起时间
+		Userid       string // 填报人id
+		Datatest     string // 主体内容详情
+		Useridtest   string // 备注人id
+		Commenttimel string // 备注填写时间
+		Commtest     string // 备注的详情
+		Spare        string // 备用
+		Spare1       string // 备用1
 	}{
-	
-		SpNo:		"sp_no", 
-		SpName:		"sp_name", 
-		ApplyTime:		"apply_time", 
-		Userid:		"userid", 
-		Datatest:		"datatest", 
-		Useridtest:		"useridtest", 
-		Commenttimel:		"commenttimel", 
-		Commtest:		"commtest", 
-		Spare:		"spare", 
-		Spare1:		"spare1", 
+
+		SpNo:         "sp_no",
+		SpName:       "sp_name",
+		ApplyTime:    "apply_time",
+		Userid:       "userid",
+		Datatest:     "datatest",
+		Useridtest:   "useridtest",
+		Commenttimel: "commenttimel",
+		Commtest:     "commtest",
+		Spare:        "spare",
+		Spare1:       "spare1",
 	}
 )
 
@@ -87,7 +87,7 @@ func (m *arModel) Slave() *arModel {
 // Table("user").LeftJoin("user_detail", "user_detail.uid=user.uid")
 // Table("user", "u").LeftJoin("user_detail", "ud", "ud.uid=u.uid")
 func (m *arModel) LeftJoin(table ...string) *arModel {
-	return &arModel{m.M.LeftJoin(table ...)}
+	return &arModel{m.M.LeftJoin(table...)}
 }
 
 // RightJoin does "RIGHT JOIN ... ON ..." statement on the model.
@@ -96,7 +96,7 @@ func (m *arModel) LeftJoin(table ...string) *arModel {
 // Table("user").RightJoin("user_detail", "user_detail.uid=user.uid")
 // Table("user", "u").RightJoin("user_detail", "ud", "ud.uid=u.uid")
 func (m *arModel) RightJoin(table ...string) *arModel {
-	return &arModel{m.M.RightJoin(table ...)}
+	return &arModel{m.M.RightJoin(table...)}
 }
 
 // InnerJoin does "INNER JOIN ... ON ..." statement on the model.
@@ -105,7 +105,7 @@ func (m *arModel) RightJoin(table ...string) *arModel {
 // Table("user").InnerJoin("user_detail", "user_detail.uid=user.uid")
 // Table("user", "u").InnerJoin("user_detail", "ud", "ud.uid=u.uid")
 func (m *arModel) InnerJoin(table ...string) *arModel {
-	return &arModel{m.M.InnerJoin(table ...)}
+	return &arModel{m.M.InnerJoin(table...)}
 }
 
 // Fields sets the operation fields of the model, multiple fields joined using char ','.

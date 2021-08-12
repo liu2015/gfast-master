@@ -60,4 +60,8 @@ func ListData(data Listdetailser) {
 	fmt.Println(exe641)
 	fmt.Println("以上时打印出的明细................................................................")
 
+	// var req nolist.AddReq1
+
+	// nolist.SelectListAll()
+
 }

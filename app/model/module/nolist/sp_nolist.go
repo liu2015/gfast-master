@@ -5,6 +5,8 @@
 package nolist
 
 import (
+	"fmt"
+
 	"github.com/gogf/gf/errors/gerror"
 	"github.com/gogf/gf/frame/g"
 )
@@ -228,46 +230,40 @@ func SelectListByPage(req *SelectPageReq) (total int, page int, list []*Entity, 
 }
 
 // SelectListAll 获取所有数据
-func SelectListAll(req *SelectPageReq) (list []*Entity, err error) {
-	model := Model
-	if req != nil {
-		if req.SpNo != "" {
-			model.Where("sp_no = ?", req.SpNo)
-		}
-		if req.SpName != "" {
-			model.Where("sp_name like ?", "%"+req.SpName+"%")
-		}
-		if req.ApplyTime != 0 {
-			model.Where("apply_time = ?", req.ApplyTime)
-		}
-		if req.Userid != "" {
-			model.Where("userid = ?", req.Userid)
-		}
-		if req.Datatest != "" {
-			model.Where("datatest = ?", req.Datatest)
-		}
-		if req.Useridtest != "" {
-			model.Where("useridtest = ?", req.Useridtest)
-		}
-		if req.Commenttimel != 0 {
-			model.Where("commenttimel = ?", req.Commenttimel)
-		}
-		if req.Commtest != "" {
-			model.Where("commtest = ?", req.Commtest)
-		}
-		if req.Spare != "" {
-			model.Where("spare = ?", req.Spare)
-		}
-		if req.Spare1 != "" {
-			model.Where("spare1 = ?", req.Spare1)
-		}
-	}
+func SelectListAll() (test []map[string]interface{}, err error) {
+	// model := Model
+	db := g.DB("default")
+
 	// 查询
-	list, err = model.Order("sp_no desc").All()
+	// list, err = model.Order("sp_no desc").All()
+	// list, err = model.Fields("SUM(userid) as value", "userid as name").All()
+	// 以上是查询汇总
+	list1, err := db.GetAll("select userid as name, count(userid) as value  from `sp_nolist`   group by userid having count(userid)>0 ORDER BY `sp_nolist`.`userid` ASC ")
+
+	// 打印获得的结果
+	fmt.Println("............................................")
+
+	//解构这些数据，然后在将数组变成json
+	fmt.Println(list1)
+	// testjson := list1.Json()
+
+	testjson := list1.List()
+	// string(list1)
+	fmt.Println(testjson)
+
+	// for _, v := range list1 {
+	// 	fmt.Println(v)
+	// 	test := v.Json()
+	// 	fmt.Println(test)
+
+	// }
+
+	fmt.Println("............................................")
 	if err != nil {
 		g.Log().Error(err)
 		err = gerror.New("查询失败")
 		return
 	}
-	return
+
+	return testjson, err
 }
