@@ -240,6 +240,8 @@ func SelectListAll() (test []map[string]interface{}, err error) {
 	// 以上是查询汇总
 	list1, err := db.GetAll("select userid as name, count(userid) as value  from `sp_nolist`   group by userid having count(userid)>0 ORDER BY `sp_nolist`.`userid` ASC ")
 
+	defer db.GetCache().Close()
+
 	// 打印获得的结果
 	fmt.Println("............................................")
 
