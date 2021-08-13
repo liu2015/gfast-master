@@ -259,7 +259,7 @@ func SelectListByPage(req *SelectPageReq) (total int, page int, list []*Entity, 
 			model = model.Where("sp_name like ?", "%"+req.SpName+"%")
 		}
 		if req.ApplyTime != nil {
-			model = model.Where("apply_time = ?", req.ApplyTime)
+			model = model.Where("apply_time >= ?", req.ApplyTime)
 		}
 		if req.ApplyerUserid != "" {
 			model = model.Where("applyer_userid = ?", req.ApplyerUserid)
@@ -307,7 +307,7 @@ func SelectListByPage(req *SelectPageReq) (total int, page int, list []*Entity, 
 			model = model.Where("comment_userid = ?", req.CommentUserid)
 		}
 		if req.Commenttime != nil {
-			model = model.Where("commenttime = ?", req.Commenttime)
+			model = model.Where("commenttime <= ?", req.Commenttime)
 		}
 		if req.Commentcontent != "" {
 			model = model.Where("commentcontent = ?", req.Commentcontent)

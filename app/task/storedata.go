@@ -19,6 +19,8 @@ func Storedata(data Storeinfo) {
 	// 格式化时间
 	timedata := data.Info.ApplyTime
 	// timestr := time.Unix(int64(timedata), 0).Format("2006-01-02 15:04:05")
+	// end时间
+	var endtime int
 
 	// gtime 格式化时间
 	entity.ApplyTime = gtime.New(timedata)
@@ -60,6 +62,7 @@ func Storedata(data Storeinfo) {
 		entity.CommentUserid = v.CommentUserInfo.Userid
 		entity.Commentcontent = v.Commentcontent
 		entity.Commenttime = gtime.New(v.Commenttime)
+		endtime = v.Commenttime
 		if k > 1 {
 			break
 		}
@@ -107,8 +110,24 @@ func Storedata(data Storeinfo) {
 		}
 	}
 
+	// 计算从发起时间到备注时间的共计耗时时间 timedata,  endtime
+
+	if endtime != 0 {
+		// 获得耗时（分钟）
+		timetest := float64((endtime - timedata) / 60)
+
+		// 计算时间并保存到结构体内
+		entity.Remarks = gconv.String(timetest)
+	}
+
+	// 保存到数据库
+	listinfo.AddSaveadd(&entity)
+
 	// entity.SpRecordSpStatus = data.Info.SpRecord
 	fmt.Println("....................................77777777777777777")
+	fmt.Println(entity)
+	fmt.Println("....................................77777777777777777")
+	fmt.Println(entity.Remarks)
 
 	fmt.Println(entity.CommentUserid)
 	fmt.Println(entity.Commentcontent)
