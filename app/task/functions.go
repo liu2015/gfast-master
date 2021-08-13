@@ -81,7 +81,7 @@ func Getaccess() {
 
 	Tmstorelist = Tmstorelisttest.DictValue
 
-	fmt.Println(Corpidtest, Corpsecret1test, Tmvaluetest)
+	// fmt.Println(Corpidtest, Corpsecret1test, Tmvaluetest)
 
 	Weixintoken()
 }

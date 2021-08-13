@@ -8,7 +8,7 @@ import (
 )
 
 // Storeinfo
-type Storeinfo1 struct {
+type Storeinfo struct {
 	Errcode int    `json:"errcode"`
 	Errmsg  string `json:"errmsg"`
 	Info    struct {
@@ -46,6 +46,7 @@ type Storeinfo1 struct {
 					Lang string `json:"lang"`
 				} `json:"title"`
 				Value struct {
+					Text        string        `json:"text"`
 					Tips        []interface{} `json:"tips"`
 					Members     []interface{} `json:"members"`
 					Departments []interface{} `json:"departments"`
@@ -81,7 +82,7 @@ type Storeinfo1 struct {
 	} `json:"info"`
 }
 
-type Storeinfo struct {
+type Storeinfo1 struct {
 	Errcode int    `json:"errcode"`
 	Errmsg  string `json:"errmsg"`
 	Info    struct {

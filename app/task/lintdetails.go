@@ -99,8 +99,8 @@ func ListDetails(sp_no string) {
 	// fmt.Println(err)
 
 	// 打印日志
-	logtest := g.Log("logger")
-	logtest.Info(listdetais)
+	// logtest := g.Log("logger")
+	// logtest.Info(listdetais)
 	// l.Debug(listdetais)
 	// 获得列的详细
 	// fmt.Println(listdetais)

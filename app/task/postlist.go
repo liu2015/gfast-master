@@ -55,7 +55,7 @@ func List() {
 	if err != nil {
 		fmt.Println("请求返回错误")
 	}
-	fmt.Println(string(jsontest))
+	// fmt.Println(string(jsontest))
 
 	resp, err := g.Client().Post(url, jsontest)
 
@@ -80,6 +80,7 @@ func List() {
 		// listadd.Sort = 1
 
 		// list.AddSave1(listadd)
+		// 保存道数据库
 		list.AddSave1(&listadd)
 
 		// 通过id执行明细保存

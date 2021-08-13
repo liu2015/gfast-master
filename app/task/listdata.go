@@ -3,7 +3,6 @@ package task
 import (
 	"fmt"
 	"gfast/app/model/module/nolist"
-	"time"
 )
 
 // 将数据详情关键数据提取出来，并且计划存储道数据库
@@ -52,12 +51,13 @@ func ListData(data Listdetailser) {
 	fmt.Println("这是打印出来明细................................................................")
 
 	// nolist.AddReq1(entity1)
+	// 门店主数据递交工单的明细
 	nolist.AddSave1(&entity1)
-	fmt.Println(entity1.ApplyTime)
-	exe64 := int64(entity1.ApplyTime)
-	fmt.Println(exe64)
-	exe641 := time.Unix(exe64, 0)
-	fmt.Println(exe641)
+	// fmt.Println(entity1.ApplyTime)
+	// exe64 := int64(entity1.ApplyTime)
+	// fmt.Println(exe64)
+	// exe641 := time.Unix(exe64, 0)
+	// fmt.Println(exe641)
 	fmt.Println("以上时打印出的明细................................................................")
 
 	// var req nolist.AddReq1

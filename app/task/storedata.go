@@ -1,6 +1,7 @@
 package task
 
 import (
+	"fmt"
 	"gfast/app/model/module/listinfo"
 
 	"github.com/gogf/gf/os/gtime"
@@ -69,12 +70,13 @@ func Storedata(data Storeinfo) {
 
 		// 获得问题描述
 		if v.ID == "Textarea-1589781790128" {
-			entity.ValueDescribe = v.Value2.Text
+			entity.ValueDescribe = v.Value.Text
 
 		}
 
+		// 补充标签内容
 		if v.ID == "Text-1613720470861" {
-			entity.ValueLabelSup = v.Value2.Text
+			entity.ValueLabelSup = v.Value.Text
 		}
 
 		optionstest := v.Value.Selector.Options
@@ -106,5 +108,8 @@ func Storedata(data Storeinfo) {
 	}
 
 	// entity.SpRecordSpStatus = data.Info.SpRecord
-
+	fmt.Println("....................................77777777777777777")
+	fmt.Println(entity.ValueDescribe)
+	fmt.Println(entity.ValueLabelSup)
+	fmt.Println("....................................77777777777777777")
 }
