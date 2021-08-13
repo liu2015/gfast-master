@@ -48,6 +48,9 @@ var Corpidtest string
 var Corpsecret1test string
 var Tmvaluetest string
 
+// 门店工单的list
+var Tmstorelist string
+
 //公共token
 var AccessToken string
 
@@ -72,6 +75,12 @@ func Getaccess() {
 		fmt.Println("获取失败")
 	}
 	Tmvaluetest = tmvalue.DictValue
+
+	// 获取门店工单列表
+	Tmstorelisttest, err := dict_service.GetDictDataById(77)
+
+	Tmstorelist = Tmstorelisttest.DictValue
+
 	fmt.Println(Corpidtest, Corpsecret1test, Tmvaluetest)
 
 	Weixintoken()
@@ -108,7 +117,12 @@ func Weixintoken() {
 	}
 	AccessToken = "access_token=" + bodytest1.AccessToken
 
-	fmt.Println(AccessToken)
+	// fmt.Println(AccessToken)
+
+	// 执行获得门店工单列表
+	Storelist()
+
+	// 执行主数据门店递交工单
 	List()
 
 }

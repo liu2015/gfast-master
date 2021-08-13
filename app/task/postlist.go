@@ -82,6 +82,7 @@ func List() {
 		// list.AddSave1(listadd)
 		list.AddSave1(&listadd)
 
+		// 通过id执行明细保存
 		ListDetails(listadd.SpId)
 
 		// // listadd.
