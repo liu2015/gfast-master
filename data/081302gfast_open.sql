@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 13/08/2021 10:10:34
+ Date: 13/08/2021 17:26:44
 */
 
 SET NAMES utf8mb4;
@@ -44,7 +44,7 @@ CREATE TABLE `auth_rule`  (
   UNIQUE INDEX `name`(`name`) USING BTREE,
   INDEX `pid`(`pid`) USING BTREE,
   INDEX `weigh`(`weigh`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 123 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '菜单节点表' ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 124 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '菜单节点表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of auth_rule
@@ -126,7 +126,7 @@ INSERT INTO `auth_rule` VALUES (82, 75, 'system/tools/api', '系统接口', 'gui
 INSERT INTO `auth_rule` VALUES (83, 78, 'system/plug/link', '友情链接', 'cascader', '', '', 0, 1595381634, 1595403122, 0, 1, 1, 'link', '', 0, 'sys_admin', 0);
 INSERT INTO `auth_rule` VALUES (84, 83, 'system/plug/link/type/list', '分类管理', 'component', '', '', 1, 1595381717, 1595381717, 0, 1, 1, 'type', 'system/plug/link/type/list', 0, 'sys_admin', 0);
 INSERT INTO `auth_rule` VALUES (85, 83, 'system/plug/link/info/list', '链接管理', 'list', '', '', 1, 1595381754, 1595381754, 0, 1, 1, 'info', 'system/plug/link/info/list', 0, 'sys_admin', 0);
-INSERT INTO `auth_rule` VALUES (86, 1, 'system/config/webSet', '站点设置', 'system', '', '', 1, 1596420340, 1596420340, 0, 1, 1, '/webSet', 'system/config/webSet', 0, 'sys_admin', 0);
+INSERT INTO `auth_rule` VALUES (86, 1, 'system/config/webSet', '站点设置', 'system', '', '', 1, 1596420340, 1628831499, 0, 1, 0, '/webSet', 'system/config/webSet', 0, 'sys_admin', 0);
 INSERT INTO `auth_rule` VALUES (106, 4, 'cms', 'cms前端展示', 'education', '', '', 1, 1604040725, 1604040798, 0, 1, 1, 'http://localhost:8200/cms', 'system/cms/news/list', 1, '', 0);
 INSERT INTO `auth_rule` VALUES (107, 0, 'system/wf', '流程管理', 'cascader', '', '', 0, 1606967359, 1628671572, 0, 1, 0, 'system/wf', '', 0, '', 0);
 INSERT INTO `auth_rule` VALUES (108, 107, 'system/wf/flow/list', '工作流列表', 'component', '', '', 1, 1606967458, 1606967516, 0, 1, 1, 'flow/list', 'system/wf/flow/list', 0, '', 0);
@@ -144,6 +144,7 @@ INSERT INTO `auth_rule` VALUES (119, 117, 'module/rary', '脚本库', 'dict', ''
 INSERT INTO `auth_rule` VALUES (120, 117, 'module/link', '脚本列表', 'chart', '', '', 1, 1627891044, 1627891044, 0, 1, 1, 'links', 'module/link', 0, '', 0);
 INSERT INTO `auth_rule` VALUES (121, 117, 'module/list', '工单列表', 'list', '', '', 1, 1628318266, 1628318266, 0, 1, 1, 'lists', 'module/list', 0, '', 0);
 INSERT INTO `auth_rule` VALUES (122, 117, 'module/nolist', '明细内容', 'clipboard', '', '', 1, 1628668800, 1628668916, 0, 1, 1, 'nolist', 'module/nolist', 0, '', 0);
+INSERT INTO `auth_rule` VALUES (123, 117, 'module/work', '工单列表', 'list', '', '', 1, 1628831932, 1628831932, 0, 1, 1, 'work', 'module/work', 0, '', 0);
 
 -- ----------------------------
 -- Table structure for blog_classification
@@ -549,7 +550,7 @@ CREATE TABLE `gen_table`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`table_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 48 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of gen_table
@@ -563,6 +564,8 @@ INSERT INTO `gen_table` VALUES (39, 'model_category', '模型分类表', 'model_
 INSERT INTO `gen_table` VALUES (40, 'user', '用户表', 'user', 'crud', 'gfast', 'module', 'user', '用户', 'gfast', '', 'admin', '2020-07-09 15:11:08', 'admin', '2020-07-13 17:18:31', '');
 INSERT INTO `gen_table` VALUES (42, 'sp_list', '获取审批表单号', 'sp_list', 'crud', 'gfast', 'module', 'list', 'module', 'liu', '', 'demo', '2021-08-07 14:29:41', 'demo', '2021-08-07 16:04:46', '获取审批表单号');
 INSERT INTO `gen_table` VALUES (45, 'sp_nolist', 'nolist明细表', 'sp_nolist', 'crud', 'gfast', 'module', 'nolist', 'nolist', 'gfast', '', 'demo', '2021-08-11 15:54:08', 'demo', '2021-08-11 15:54:40', '');
+INSERT INTO `gen_table` VALUES (46, 'sp_list_work', '门店工单单号表', 'sp_list_work', 'crud', 'gfast', 'module', 'work', 'work', 'gfast', '', 'demo', '2021-08-13 13:12:09', 'demo', '2021-08-13 13:13:30', '');
+INSERT INTO `gen_table` VALUES (47, 'sp_listinfo', '门店问题工单详情', 'sp_listinfo', 'crud', 'gfast', 'module', 'listinfo', 'listinfo', 'gfast', '', 'demo', '2021-08-13 14:38:11', 'demo', '2021-08-13 15:10:44', '门店问题工单详情');
 
 -- ----------------------------
 -- Table structure for gen_table_column
@@ -593,7 +596,7 @@ CREATE TABLE `gen_table_column`  (
   `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`column_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 483 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 511 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gen_table_column
@@ -700,6 +703,34 @@ INSERT INTO `gen_table_column` VALUES (479, 45, 'commenttimel', '备注填写时
 INSERT INTO `gen_table_column` VALUES (480, 45, 'commtest', '备注的详情', 'varchar(200)', 'string', 'Commtest', 'commtest', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 8, 'demo', '2021-08-11 15:54:08', '', '2021-08-11 15:54:08');
 INSERT INTO `gen_table_column` VALUES (481, 45, 'spare', '备用', 'varchar(200)', 'string', 'Spare', 'spare', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 9, 'demo', '2021-08-11 15:54:08', '', '2021-08-11 15:54:08');
 INSERT INTO `gen_table_column` VALUES (482, 45, 'spare1', '备用1', 'varchar(200)', 'string', 'Spare1', 'spare1', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 10, 'demo', '2021-08-11 15:54:08', '', '2021-08-11 15:54:08');
+INSERT INTO `gen_table_column` VALUES (483, 46, 'sp_id', '单号', 'varchar(200)', 'string', 'SpId', 'spId', '1', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 1, 'demo', '2021-08-13 13:12:09', '', '2021-08-13 13:12:09');
+INSERT INTO `gen_table_column` VALUES (484, 46, 'errmsg', 'msg信息', 'varchar(100)', 'string', 'Errmsg', 'errmsg', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'demo', '2021-08-13 13:12:09', '', '2021-08-13 13:12:09');
+INSERT INTO `gen_table_column` VALUES (485, 46, 'errcode', '错误id', 'varchar(100)', 'string', 'Errcode', 'errcode', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'demo', '2021-08-13 13:12:09', '', '2021-08-13 13:12:09');
+INSERT INTO `gen_table_column` VALUES (486, 46, 'sort', '是否再次被拉去', 'int(100)', 'int', 'Sort', 'sort', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'demo', '2021-08-13 13:12:09', '', '2021-08-13 13:12:09');
+INSERT INTO `gen_table_column` VALUES (487, 46, 'starttime', '开始时间', 'int(200)', 'int', 'Starttime', 'starttime', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 5, 'demo', '2021-08-13 13:12:09', '', '2021-08-13 13:12:09');
+INSERT INTO `gen_table_column` VALUES (488, 46, 'endtime', '至时间', 'int(200)', 'int', 'Endtime', 'endtime', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 6, 'demo', '2021-08-13 13:12:09', '', '2021-08-13 13:12:09');
+INSERT INTO `gen_table_column` VALUES (489, 46, 'sp_name', '工单类型名字', 'varchar(200)', 'string', 'SpName', 'spName', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 7, 'demo', '2021-08-13 13:12:09', '', '2021-08-13 13:12:09');
+INSERT INTO `gen_table_column` VALUES (490, 47, 'sp_no', '单号', 'varchar(100)', 'string', 'SpNo', 'spNo', '1', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 1, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (491, 47, 'sp_name', '门店问题工单名字', 'varchar(150)', 'string', 'SpName', 'spName', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 2, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (492, 47, 'apply_time', '发起时间', 'datetime', 'Time', 'ApplyTime', 'applyTime', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'datetime', '', 3, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (493, 47, 'applyer_userid', '发起用户id', 'varchar(100)', 'string', 'ApplyerUserid', 'applyerUserid', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 4, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (494, 47, 'sp_record', '审批详情数组', 'text', 'string', 'SpRecord', 'spRecord', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 5, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (495, 47, 'sp_record_sp_status', '审批状态', 'int(100)', 'int', 'SpRecordSpStatus', 'spRecordSpStatus', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'radio', '', 6, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (496, 47, 'details_userid', '审批人id', 'varchar(100)', 'string', 'DetailsUserid', 'detailsUserid', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 7, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (497, 47, 'details_speech', '审批意见', 'varchar(200)', 'string', 'DetailsSpeech', 'detailsSpeech', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 8, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (498, 47, 'details_sp_status', '分支审批状态2是同意状态', 'int(100)', 'int', 'DetailsSpStatus', 'detailsSpStatus', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'radio', '', 9, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (499, 47, 'details_sptime', '审批时间', 'datetime', 'Time', 'DetailsSptime', 'detailsSptime', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'datetime', '', 10, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (500, 47, 'value_proble', '问题类型', 'varchar(200)', 'string', 'ValueProble', 'valueProble', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 11, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (501, 47, 'value_repair', '报修类型', 'varchar(200)', 'string', 'ValueRepair', 'valueRepair', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 12, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (502, 47, 'value_region', '报修区域', 'varchar(200)', 'string', 'ValueRegion', 'valueRegion', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 13, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (503, 47, 'value_describe', '故障描述', 'varchar(200)', 'string', 'ValueDescribe', 'valueDescribe', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 14, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (504, 47, 'value_store', '报修门店', 'varchar(200)', 'string', 'ValueStore', 'valueStore', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 15, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (505, 47, 'value_label', '定义标签', 'varchar(200)', 'string', 'ValueLabel', 'valueLabel', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 16, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (506, 47, 'value_label_sup', '定义标签补充', 'varchar(200)', 'string', 'ValueLabelSup', 'valueLabelSup', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 17, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (507, 47, 'comment_userid', '备注人id', 'varchar(200)', 'string', 'CommentUserid', 'commentUserid', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 18, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (508, 47, 'commenttime', '备注人时间', 'datetime', 'Time', 'Commenttime', 'commenttime', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'datetime', '', 19, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (509, 47, 'commentcontent', '备注问题内容', 'varchar(200)', 'string', 'Commentcontent', 'commentcontent', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 20, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
+INSERT INTO `gen_table_column` VALUES (510, 47, 'remarks', '备注', 'varchar(255)', 'string', 'Remarks', 'remarks', '0', '0', '0', '1', '1', '1', '1', 'EQ', 'input', '', 21, 'demo', '2021-08-13 14:38:11', '', '2021-08-13 14:38:11');
 
 -- ----------------------------
 -- Table structure for lib_link
@@ -1080,25 +1111,182 @@ INSERT INTO `sp_list` VALUES ('202108040055', 'ok', '0', 0, 1628659560, 16280547
 INSERT INTO `sp_list` VALUES ('202108050033', 'ok', '0', 0, 1628736960, 1628132160);
 INSERT INTO `sp_list` VALUES ('202108050118', 'ok', '0', 0, 1628760961, 1628156161);
 INSERT INTO `sp_list` VALUES ('202108050121', 'ok', '0', 0, 1628760961, 1628156161);
-INSERT INTO `sp_list` VALUES ('202108060057', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108060077', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108060082', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108060101', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108060102', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108070036', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108090009', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108090011', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108090045', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108090047', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108090048', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108090049', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108090050', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108090051', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108100031', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108100046', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108110009', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108110016', 'ok', '0', 0, 1628820540, 1628215740);
-INSERT INTO `sp_list` VALUES ('202108120011', 'ok', '0', 0, 1628820540, 1628215740);
+INSERT INTO `sp_list` VALUES ('202108060057', 'ok', '0', 0, 1628836322, 1628231522);
+INSERT INTO `sp_list` VALUES ('202108060077', 'ok', '0', 0, 1628841062, 1628236262);
+INSERT INTO `sp_list` VALUES ('202108060082', 'ok', '0', 0, 1628842022, 1628237222);
+INSERT INTO `sp_list` VALUES ('202108060101', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108060102', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108070036', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108090009', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108090011', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108090045', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108090047', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108090048', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108090049', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108090050', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108090051', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108100031', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108100046', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108110009', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108110016', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108120011', 'ok', '0', 0, 1628846342, 1628241542);
+INSERT INTO `sp_list` VALUES ('202108130034', 'ok', '0', 0, 1628846342, 1628241542);
+
+-- ----------------------------
+-- Table structure for sp_list_work
+-- ----------------------------
+DROP TABLE IF EXISTS `sp_list_work`;
+CREATE TABLE `sp_list_work`  (
+  `sp_id` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '单号',
+  `errmsg` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT 'msg信息',
+  `errcode` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '错误id',
+  `sort` int(100) NULL DEFAULT NULL COMMENT '是否再次被拉去',
+  `starttime` int(200) NULL DEFAULT NULL COMMENT '开始时间',
+  `endtime` int(200) NULL DEFAULT NULL COMMENT '至时间',
+  `sp_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '工单类型名字',
+  PRIMARY KEY (`sp_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sp_list_work
+-- ----------------------------
+INSERT INTO `sp_list_work` VALUES ('202108060056', 'ok', '0', 0, 1628230800, 1628835600, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060072', 'ok', '0', 0, 1628235360, 1628840160, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060084', 'ok', '0', 0, 1628237580, 1628842380, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060085', 'ok', '0', 0, 1628238060, 1628842860, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060099', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060100', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060103', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060104', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060108', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060109', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060117', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060120', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060123', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060124', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108060126', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070009', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070010', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070012', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070014', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070017', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070018', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070020', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070024', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070025', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070026', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070028', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070030', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070034', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070038', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070039', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070041', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070044', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070047', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070050', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070051', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070052', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108070069', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108080003', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108080010', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108080015', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108080027', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108080031', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108080037', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108080041', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108080043', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108080047', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108080053', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090008', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090010', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090015', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090018', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090019', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090021', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090022', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090024', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090029', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090030', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090031', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090070', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108090079', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100001', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100008', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100023', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100025', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100027', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100030', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100036', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100047', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100049', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100055', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100061', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100062', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100063', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100064', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100067', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100072', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108100073', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110011', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110012', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110013', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110014', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110020', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110022', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110025', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110026', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110027', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110029', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110032', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110034', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110039', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110045', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110048', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110058', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110071', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108110072', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108120004', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108120013', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108120014', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108120042', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108120043', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108120045', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108130002', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108130005', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+INSERT INTO `sp_list_work` VALUES ('202108130006', 'ok', '0', 0, 1628241540, 1628846340, '门店问题工单');
+
+-- ----------------------------
+-- Table structure for sp_listinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `sp_listinfo`;
+CREATE TABLE `sp_listinfo`  (
+  `sp_no` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '单号',
+  `sp_name` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '门店问题工单名字',
+  `apply_time` datetime(0) NULL DEFAULT NULL COMMENT '发起时间',
+  `applyer_userid` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '发起用户id',
+  `sp_record` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '审批详情数组',
+  `sp_record_sp_status` int(100) NULL DEFAULT NULL COMMENT '审批状态',
+  `details_userid` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '审批人id',
+  `details_speech` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '审批意见',
+  `details_sp_status` int(100) NULL DEFAULT NULL COMMENT '分支审批状态2是同意状态',
+  `details_sptime` datetime(0) NULL DEFAULT NULL COMMENT '审批时间',
+  `value_proble` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '问题类型',
+  `value_repair` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '报修类型',
+  `value_region` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '报修区域',
+  `value_describe` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '故障描述',
+  `value_store` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '报修门店',
+  `value_label` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '定义标签',
+  `value_label_sup` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '定义标签补充',
+  `comment_userid` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '备注人id',
+  `commenttime` datetime(0) NULL DEFAULT NULL COMMENT '备注人时间',
+  `commentcontent` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '备注问题内容',
+  `remarks` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`sp_no`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of sp_listinfo
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sp_nolist
@@ -1124,25 +1312,26 @@ CREATE TABLE `sp_nolist`  (
 INSERT INTO `sp_nolist` VALUES ('202108050033', '门店特许主数据递交申请', 1628132183, '052031', 'CS00117长沙市开福区月湖街道马栏山店---托管店申请系统建店，ID:TX0000408', '', 0, '', '', '');
 INSERT INTO `sp_nolist` VALUES ('202108050118', '门店特许主数据递交申请', 1628161110, '055164', '你好，陕西新开单店托管特许新店，还请帮忙系统建店，谢谢。\nWN00003  渭南临渭区吾悦广场店    张志瑞特许店\n', '', 0, '', '', '');
 INSERT INTO `sp_nolist` VALUES ('202108050121', '门店特许主数据递交申请', 1628169498, '049891', '深圳托管特许', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108060057', '门店特许主数据递交申请', 1628231527, '048664', '新特许商，新开托管门店', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108060077', '门店特许主数据递交申请', 1628236289, '055164', '你好，陕西新开直营门店，还请帮忙系统建店，谢谢。\nXA00062	宝鸡渭滨区经一路步行街店\n', '', 0, '', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108060057', '门店特许主数据递交申请', 1628231527, '048664', '新特许商，新开托管门店', '015444', 1628831381, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108060077', '门店特许主数据递交申请', 1628236289, '055164', '你好，陕西新开直营门店，还请帮忙系统建店，谢谢。\nXA00062	宝鸡渭滨区经一路步行街店\n', '015444', 1628831392, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
 INSERT INTO `sp_nolist` VALUES ('202108060082', '门店特许主数据递交申请', 1628237229, '049891', '福建直营门店', '049891', 1628477215, '@陈迪 ​表里漏个名字，店名福州站2店', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108060101', '门店特许主数据递交申请', 1628246003, '056624', '江西当先新增1家门店', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108060102', '门店特许主数据递交申请', 1628246151, '056624', '上饶鑫耀新增1家门店', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108070036', '门店特许主数据递交申请', 1628321310, '052031', 'ID:TX0000093,LD00004娄底娄星区高铁店--发展式特许店，申请系统建店', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108090009', '门店特许主数据递交申请', 1628472057, '004821', '湖北特许主数据建立', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108090011', '门店特许主数据递交申请', 1628475249, '067655', '新增托管门店 麻烦设置SAP信息\nTZ10002	泰州靖江市上海城店\nJN00031	济南市中区纬一路店\n', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108090045', '门店特许主数据递交申请', 1628491505, '048664', '老特许商新开特许门店HF00104', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108090047', '门店特许主数据递交申请', 1628492655, '049891', '广东商贸 直营店的，预计开业时间8.15', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108090048', '门店特许主数据递交申请', 1628492745, '049891', '深圳托管门店', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108090049', '门店特许主数据递交申请', 1628492848, '049891', '莞佛城市特许', '049891', 1628493606, '徐良庆TX0000099', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108090050', '门店特许主数据递交申请', 1628492901, '049891', '广深内创门店', '049891', 1628493586, '张永钦TX0000133', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108090051', '门店特许主数据递交申请', 1628493346, '005952', 'BJ00522 ', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108100031', '门店特许主数据递交申请', 1628567194, '052031', 'ID:TX0000398  YY00102 益阳南县桂花中央广场店-- 托管特许店，申请系统建店', '', 0, '', '', '');
-INSERT INTO `sp_nolist` VALUES ('202108100046', '门店特许主数据递交申请', 1628574460, '005952', '天津3家直营门店', '', 0, '', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108060101', '门店特许主数据递交申请', 1628246003, '056624', '江西当先新增1家门店', '015444', 1628831421, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108060102', '门店特许主数据递交申请', 1628246151, '056624', '上饶鑫耀新增1家门店', '015444', 1628831444, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108070036', '门店特许主数据递交申请', 1628321310, '052031', 'ID:TX0000093,LD00004娄底娄星区高铁店--发展式特许店，申请系统建店', '015444', 1628831455, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108090009', '门店特许主数据递交申请', 1628472057, '004821', '湖北特许主数据建立', '015444', 1628831475, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108090011', '门店特许主数据递交申请', 1628475249, '067655', '新增托管门店 麻烦设置SAP信息\nTZ10002	泰州靖江市上海城店\nJN00031	济南市中区纬一路店\n', '015444', 1628831494, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108090045', '门店特许主数据递交申请', 1628491505, '048664', '老特许商新开特许门店HF00104', '015444', 1628832332, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108090047', '门店特许主数据递交申请', 1628492655, '049891', '广东商贸 直营店的，预计开业时间8.15', '015444', 1628831505, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108090048', '门店特许主数据递交申请', 1628492745, '049891', '深圳托管门店', '015444', 1628831516, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108090049', '门店特许主数据递交申请', 1628492848, '049891', '莞佛城市特许', '015444', 1628831528, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108090050', '门店特许主数据递交申请', 1628492901, '049891', '广深内创门店', '015444', 1628831537, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108090051', '门店特许主数据递交申请', 1628493346, '005952', 'BJ00522 ', '015444', 1628831553, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108100031', '门店特许主数据递交申请', 1628567194, '052031', 'ID:TX0000398  YY00102 益阳南县桂花中央广场店-- 托管特许店，申请系统建店', '015444', 1628832369, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108100046', '门店特许主数据递交申请', 1628574460, '005952', '天津3家直营门店', '015444', 1628832388, '根本问题：新店开业  解决办法：新店开业资料设置', '', '');
 INSERT INTO `sp_nolist` VALUES ('202108110009', '门店特许主数据递交申请', 1628644276, '062576', '祥云温州店特许ID：TX0000097  详情请见附件!  ', '', 0, '', '', '');
 INSERT INTO `sp_nolist` VALUES ('202108110016', '门店特许主数据递交申请', 1628646427, '005952', 'BJ00523', '', 0, '', '', '');
 INSERT INTO `sp_nolist` VALUES ('202108120011', '门店特许主数据递交申请', 1628732930, '004821', '湖北特许主数据建立', '', 0, '', '', '');
+INSERT INTO `sp_nolist` VALUES ('202108130034', '门店特许主数据递交申请', 1628831246, '005952', '北京4家托管门店', '', 0, '', '', '');
 
 -- ----------------------------
 -- Table structure for sys_config
@@ -1231,7 +1420,7 @@ CREATE TABLE `sys_dict_data`  (
   `update_time` bigint(20) UNSIGNED NULL DEFAULT 0 COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 77 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '字典数据表' ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 78 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '字典数据表' ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_dict_data
@@ -1279,6 +1468,7 @@ INSERT INTO `sys_dict_data` VALUES (73, 0, '特急', '3', 'flow_level', '', '', 
 INSERT INTO `sys_dict_data` VALUES (74, 0, 'corpid', 'corpid=wwf660e2b3e152fcff', 'access_token', '', '', 0, 1, 31, 1628273198, 31, 1628306575, '这个是企业id');
 INSERT INTO `sys_dict_data` VALUES (75, 0, 'corpsecret', 'corpsecret=sk_I1hACRBtmZbvRu0IRtjcjHHXPTD5UrSxB1KJmaeg', 'access_token', '', '', 0, 1, 31, 1628273207, 31, 1628306586, '这个是审批模块的值');
 INSERT INTO `sys_dict_data` VALUES (76, 0, 'value', 'Bs7vpjPUj2mCTnrWrzHsUwrt4HFqnvfrEq6K71k6i', 'access_token', '', '', 0, 1, 31, 1628273323, 31, 1628306738, '批量获取审核模板（默认是主数据递交模板）');
+INSERT INTO `sys_dict_data` VALUES (77, 0, 'value', '3TmkwTZXBVeJ43iqA21mhXMe13NmMPQM3iVdUMPu', 'access_token', '', '', 0, 1, 31, 1628832454, 31, 1628832481, '门店问题工单列表');
 
 -- ----------------------------
 -- Table structure for sys_dict_type
@@ -1367,7 +1557,7 @@ CREATE TABLE `sys_login_log`  (
   `login_time` bigint(20) NULL DEFAULT 0 COMMENT '访问时间',
   `module` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '登录模块',
   PRIMARY KEY (`info_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 50 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 53 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_login_log
@@ -1421,6 +1611,9 @@ INSERT INTO `sys_login_log` VALUES (46, 'demo', '[::1]', '内网IP', 'Chrome', '
 INSERT INTO `sys_login_log` VALUES (47, 'demo', '[::1]', '内网IP', 'Chrome', 'Windows 10', 1, '登录成功', 1628755162, '系统后台');
 INSERT INTO `sys_login_log` VALUES (48, 'demo', '[::1]', '内网IP', 'Chrome', 'Windows 10', 1, '登录成功', 1628759080, '系统后台');
 INSERT INTO `sys_login_log` VALUES (49, 'demo', '[::1]', '内网IP', 'Chrome', 'Windows 10', 1, '登录成功', 1628814215, '系统后台');
+INSERT INTO `sys_login_log` VALUES (50, 'demo', '[::1]', '内网IP', 'Chrome', 'Windows 10', 1, '登录成功', 1628831465, '系统后台');
+INSERT INTO `sys_login_log` VALUES (51, 'demo', '[::1]', '内网IP', 'Chrome', 'Windows 10', 1, '登录成功', 1628832173, '系统后台');
+INSERT INTO `sys_login_log` VALUES (52, 'demo', '[::1]', '内网IP', 'Chrome', 'Windows 10', 1, '登录成功', 1628835454, '系统后台');
 
 -- ----------------------------
 -- Table structure for sys_oper_log
@@ -1444,7 +1637,7 @@ CREATE TABLE `sys_oper_log`  (
   `error_msg` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '错误消息',
   `oper_time` bigint(20) NULL DEFAULT 0 COMMENT '操作时间',
   PRIMARY KEY (`oper_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 1181 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 1281 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -2629,6 +2822,106 @@ INSERT INTO `sys_oper_log` VALUES (1177, '', 0, '/system/index/getInfo', 'GET', 
 INSERT INTO `sys_oper_log` VALUES (1178, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628815784);
 INSERT INTO `sys_oper_log` VALUES (1179, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628819423);
 INSERT INTO `sys_oper_log` VALUES (1180, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628819423);
+INSERT INTO `sys_oper_log` VALUES (1181, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831465);
+INSERT INTO `sys_oper_log` VALUES (1182, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831465);
+INSERT INTO `sys_oper_log` VALUES (1183, '', 0, '/system/config/webSet/getInfo', 'GET', 1, 'demo', '', '/system/config/webSet/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"站点信息\"}', 1, '', 1628831482);
+INSERT INTO `sys_oper_log` VALUES (1184, '菜单管理', 0, '/system/auth/menuList', 'GET', 1, 'demo', '', '/system/auth/menuList', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"成功\"}', 1, '', 1628831492);
+INSERT INTO `sys_oper_log` VALUES (1185, '修改菜单', 0, '/system/auth/editMenu', 'GET', 1, 'demo', '', '/system/auth/editMenu?menuId=86', '[::1]', '内网IP', '{\"menuId\":\"86\"}', '{\"code\":0,\"msg\":\"成功\"}', 1, '', 1628831497);
+INSERT INTO `sys_oper_log` VALUES (1186, '修改菜单', 0, '/system/auth/editMenu', 'POST', 1, 'demo', '', '/system/auth/editMenu', '[::1]', '内网IP', '{\"component\":\"system/config/webSet\",\"icon\":\"system\",\"isFrame\":\"0\",\"menuId\":86,\"menuName\":\"站点设置\",\"menuType\":\"1\",\"name\":\"system/config/webSet\",\"orderNum\":0,\"parentId\":1,\"path\":\"/webSet\",\"status\":\"1\",\"visible\":\"0\"}', '{\"code\":0,\"msg\":\"修改菜单成功\"}', 1, '', 1628831500);
+INSERT INTO `sys_oper_log` VALUES (1187, '菜单管理', 0, '/system/auth/menuList', 'GET', 1, 'demo', '', '/system/auth/menuList', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"成功\"}', 1, '', 1628831500);
+INSERT INTO `sys_oper_log` VALUES (1188, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831506);
+INSERT INTO `sys_oper_log` VALUES (1189, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831506);
+INSERT INTO `sys_oper_log` VALUES (1190, '菜单管理', 0, '/system/auth/menuList', 'GET', 1, 'demo', '', '/system/auth/menuList', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"成功\"}', 1, '', 1628831507);
+INSERT INTO `sys_oper_log` VALUES (1191, '', 0, '/system/config/dict/getDicts', 'GET', 1, 'demo', '', '/system/config/dict/getDicts?dictType=sysCommonStatus', '[::1]', '内网IP', '{\"dictType\":\"sysCommonStatus\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831514);
+INSERT INTO `sys_oper_log` VALUES (1192, '', 0, '/system/monitor/operlog/list', 'GET', 1, 'demo', '', '/system/monitor/operlog/list?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"操作日志列表\"}', 1, '', 1628831514);
+INSERT INTO `sys_oper_log` VALUES (1193, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831522);
+INSERT INTO `sys_oper_log` VALUES (1194, '', 0, '/system/tools/gen/dataList', 'GET', 1, 'demo', '', '/system/tools/gen/dataList?pageNum=1&pageSize=10', '[::1]', '内网IP', '{\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831524);
+INSERT INTO `sys_oper_log` VALUES (1195, '', 0, '/system/tools/gen/importTableSave', 'POST', 1, 'demo', '', '/system/tools/gen/importTableSave?tables=sp_list_work', '[::1]', '内网IP', '{\"tables\":\"sp_list_work\"}', '{\"code\":0,\"msg\":\"导入数据表成功\"}', 1, '', 1628831529);
+INSERT INTO `sys_oper_log` VALUES (1196, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831529);
+INSERT INTO `sys_oper_log` VALUES (1197, '', 0, '/system/config/dict/optionSelect', 'GET', 1, 'demo', '', '/system/config/dict/optionSelect', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831536);
+INSERT INTO `sys_oper_log` VALUES (1198, '', 0, '/system/tools/gen/columnList', 'GET', 1, 'demo', '', '/system/tools/gen/columnList?tableId=46', '[::1]', '内网IP', '{\"tableId\":\"46\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831536);
+INSERT INTO `sys_oper_log` VALUES (1199, '', 0, '/system/tools/gen/editSave', 'PUT', 1, 'demo', '', '/system/tools/gen/editSave', '[::1]', '内网IP', '{\"business_name\":\"work\",\"class_name\":\"sp_list_work\",\"columns\":[{\"column_comment\":\"单号\",\"column_id\":483,\"column_name\":\"sp_id\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 13:12:09\",\"dict_type\":\"\",\"go_field\":\"SpId\",\"go_type\":\"string\",\"html_field\":\"spId\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"1\",\"is_query\":\"1\",\"is_required\":\"1\",\"query_type\":\"EQ\",\"sort\":1,\"table_id\":46,\"update_by\":\"\",\"update_time\":\"2021-08-13 13:12:09\"},{\"column_comment\":\"msg信息\",\"column_id\":484,\"column_name\":\"errmsg\",\"column_type\":\"varchar(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 13:12:09\",\"dict_type\":\"\",\"go_field\":\"Errmsg\",\"go_type\":\"string\",\"html_field\":\"errmsg\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":2,\"table_id\":46,\"update_by\":\"\",\"update_time\":\"2021-08-13 13:12:09\"},{\"column_comment\":\"错误id\",\"column_id\":485,\"column_name\":\"errcode\",\"column_type\":\"varchar(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 13:12:09\",\"dict_type\":\"\",\"go_field\":\"Errcode\",\"go_type\":\"string\",\"html_field\":\"errcode\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":3,\"table_id\":46,\"update_by\":\"\",\"update_time\":\"2021-08-13 13:12:09\"},{\"column_comment\":\"是否再次被拉去\",\"column_id\":486,\"column_name\":\"sort\",\"column_type\":\"int(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 13:12:09\",\"dict_type\":\"\",\"go_field\":\"Sort\",\"go_type\":\"int\",\"html_field\":\"sort\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":4,\"table_id\":46,\"update_by\":\"\",\"update_time\":\"2021-08-13 13:12:09\"},{\"column_comment\":\"开始时间\",\"column_id\":487,\"column_name\":\"starttime\",\"column_type\":\"int(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 13:12:09\",\"dict_type\":\"\",\"go_field\":\"Starttime\",\"go_type\":\"int\",\"html_field\":\"starttime\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":5,\"table_id\":46,\"update_by\":\"\",\"update_time\":\"2021-08-13 13:12:09\"},{\"column_comment\":\"至时间\",\"column_id\":488,\"column_name\":\"endtime\",\"column_type\":\"int(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 13:12:09\",\"dict_type\":\"\",\"go_field\":\"Endtime\",\"go_type\":\"int\",\"html_field\":\"endtime\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":6,\"table_id\":46,\"update_by\":\"\",\"update_time\":\"2021-08-13 13:12:09\"},{\"column_comment\":\"工单类型名字\",\"column_id\":489,\"column_name\":\"sp_name\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 13:12:09\",\"dict_type\":\"\",\"go_field\":\"SpName\",\"go_type\":\"string\",\"html_field\":\"spName\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"query_type\":\"LIKE\",\"sort\":7,\"table_id\":46,\"update_by\":\"\",\"update_time\":\"2021-08-13 13:12:09\"}],\"create_by\":\"demo\",\"create_time\":\"2021-08-13 13:12:09\",\"function_author\":\"gfast\",\"function_name\":\"work\",\"module_name\":\"module\",\"options\":\"\",\"package_name\":\"gfast\",\"params\":{},\"remark\":\"\",\"table_comment\":\"门店工单单号表\",\"table_id\":46,\"table_name\":\"sp_list_work\",\"tpl_category\":\"crud\",\"update_by\":\"\",\"update_time\":\"2021-08-13 13:12:09\"}', '{\"code\":0,\"msg\":\"设置成功\"}', 1, '', 1628831610);
+INSERT INTO `sys_oper_log` VALUES (1200, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831610);
+INSERT INTO `sys_oper_log` VALUES (1201, '', 0, '/system/tools/gen/batchGenCode', 'GET', 1, 'demo', '', '/system/tools/gen/batchGenCode?tables=46', '[::1]', '内网IP', '{\"tables\":\"46\"}', '', 0, '', 1628831631);
+INSERT INTO `sys_oper_log` VALUES (1202, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831779);
+INSERT INTO `sys_oper_log` VALUES (1203, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831779);
+INSERT INTO `sys_oper_log` VALUES (1204, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831779);
+INSERT INTO `sys_oper_log` VALUES (1205, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831779);
+INSERT INTO `sys_oper_log` VALUES (1206, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831780);
+INSERT INTO `sys_oper_log` VALUES (1207, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831878);
+INSERT INTO `sys_oper_log` VALUES (1208, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831878);
+INSERT INTO `sys_oper_log` VALUES (1209, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831878);
+INSERT INTO `sys_oper_log` VALUES (1210, '菜单管理', 0, '/system/auth/menuList', 'GET', 1, 'demo', '', '/system/auth/menuList', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"成功\"}', 1, '', 1628831883);
+INSERT INTO `sys_oper_log` VALUES (1211, '添加菜单', 0, '/system/auth/addMenu', 'GET', 1, 'demo', '', '/system/auth/addMenu', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"成功\"}', 1, '', 1628831889);
+INSERT INTO `sys_oper_log` VALUES (1212, '添加菜单', 0, '/system/auth/addMenu', 'GET', 1, 'demo', '', '/system/auth/addMenu', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"成功\"}', 1, '', 1628831898);
+INSERT INTO `sys_oper_log` VALUES (1213, '添加菜单', 0, '/system/auth/addMenu', 'POST', 1, 'demo', '', '/system/auth/addMenu', '[::1]', '内网IP', '{\"component\":\"module/work\",\"icon\":\"list\",\"isFrame\":\"0\",\"menuName\":\"工单列表\",\"menuType\":\"1\",\"name\":\"module/work\",\"orderNum\":0,\"parentId\":117,\"path\":\"work\",\"status\":\"1\",\"visible\":\"1\"}', '{\"code\":0,\"msg\":\"添加菜单成功\"}', 1, '', 1628831932);
+INSERT INTO `sys_oper_log` VALUES (1214, '菜单管理', 0, '/system/auth/menuList', 'GET', 1, 'demo', '', '/system/auth/menuList', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"成功\"}', 1, '', 1628831933);
+INSERT INTO `sys_oper_log` VALUES (1215, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831935);
+INSERT INTO `sys_oper_log` VALUES (1216, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831936);
+INSERT INTO `sys_oper_log` VALUES (1217, '菜单管理', 0, '/system/auth/menuList', 'GET', 1, 'demo', '', '/system/auth/menuList', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"成功\"}', 1, '', 1628831936);
+INSERT INTO `sys_oper_log` VALUES (1218, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831945);
+INSERT INTO `sys_oper_log` VALUES (1219, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831946);
+INSERT INTO `sys_oper_log` VALUES (1220, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831952);
+INSERT INTO `sys_oper_log` VALUES (1221, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628831952);
+INSERT INTO `sys_oper_log` VALUES (1222, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628832009);
+INSERT INTO `sys_oper_log` VALUES (1223, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628832009);
+INSERT INTO `sys_oper_log` VALUES (1224, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628832173);
+INSERT INTO `sys_oper_log` VALUES (1225, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628832173);
+INSERT INTO `sys_oper_log` VALUES (1226, '字典管理', 0, '/system/config/dict/list', 'GET', 1, 'demo', '', '/system/config/dict/list?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"字典列表\"}', 1, '', 1628832409);
+INSERT INTO `sys_oper_log` VALUES (1227, '字典管理', 0, '/system/config/dict/list', 'GET', 1, 'demo', '', '/system/config/dict/list?pageNum=2&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"2\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"字典列表\"}', 1, '', 1628832411);
+INSERT INTO `sys_oper_log` VALUES (1228, '字典数据管理', 0, '/system/config/dict/dataList', 'GET', 1, 'demo', '', '/system/config/dict/dataList?pageNum=1&pageSize=10&dictType=access_token', '[::1]', '内网IP', '{\"dictType\":\"access_token\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628832414);
+INSERT INTO `sys_oper_log` VALUES (1229, '添加字典数据', 0, '/system/config/dict/dataAdd', 'POST', 1, 'demo', '', '/system/config/dict/dataAdd', '[::1]', '内网IP', '{\"dictLabel\":\"value\",\"dictSort\":0,\"dictType\":\"access_token\",\"dictValue\":\"3TmkwTZXBVeJ43iqA21mhXMe13NmMPQM3iVdUMPu\",\"isDefault\":\"0\",\"status\":\"1\"}', '{\"code\":0,\"msg\":\"添加字典数据成功\"}', 1, '', 1628832454);
+INSERT INTO `sys_oper_log` VALUES (1230, '字典数据管理', 0, '/system/config/dict/dataList', 'GET', 1, 'demo', '', '/system/config/dict/dataList?pageNum=1&pageSize=10&dictType=access_token', '[::1]', '内网IP', '{\"dictType\":\"access_token\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628832454);
+INSERT INTO `sys_oper_log` VALUES (1231, '修改字典数据', 0, '/system/config/dict/dataEdit', 'GET', 1, 'demo', '', '/system/config/dict/dataEdit?dictCode=77', '[::1]', '内网IP', '{\"dictCode\":\"77\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628832456);
+INSERT INTO `sys_oper_log` VALUES (1232, '修改字典数据', 0, '/system/config/dict/dataEdit', 'GET', 1, 'demo', '', '/system/config/dict/dataEdit?dictCode=77', '[::1]', '内网IP', '{\"dictCode\":\"77\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628832465);
+INSERT INTO `sys_oper_log` VALUES (1233, '修改字典数据', 0, '/system/config/dict/dataEdit', 'POST', 1, 'demo', '', '/system/config/dict/dataEdit', '[::1]', '内网IP', '{\"dictCode\":77,\"dictLabel\":\"value\",\"dictSort\":0,\"dictType\":\"access_token\",\"dictValue\":\"3TmkwTZXBVeJ43iqA21mhXMe13NmMPQM3iVdUMPu\",\"isDefault\":\"0\",\"remark\":\"门店问题工单列表\",\"status\":\"1\"}', '{\"code\":0,\"msg\":\"修改字典数据成功\"}', 1, '', 1628832481);
+INSERT INTO `sys_oper_log` VALUES (1234, '字典数据管理', 0, '/system/config/dict/dataList', 'GET', 1, 'demo', '', '/system/config/dict/dataList?pageNum=1&pageSize=10&dictType=access_token', '[::1]', '内网IP', '{\"dictType\":\"access_token\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628832481);
+INSERT INTO `sys_oper_log` VALUES (1235, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628833959);
+INSERT INTO `sys_oper_log` VALUES (1236, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628833959);
+INSERT INTO `sys_oper_log` VALUES (1237, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835454);
+INSERT INTO `sys_oper_log` VALUES (1238, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835454);
+INSERT INTO `sys_oper_log` VALUES (1239, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835459);
+INSERT INTO `sys_oper_log` VALUES (1240, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835459);
+INSERT INTO `sys_oper_log` VALUES (1241, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835461);
+INSERT INTO `sys_oper_log` VALUES (1242, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835461);
+INSERT INTO `sys_oper_log` VALUES (1243, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835463);
+INSERT INTO `sys_oper_log` VALUES (1244, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835463);
+INSERT INTO `sys_oper_log` VALUES (1245, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835472);
+INSERT INTO `sys_oper_log` VALUES (1246, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835472);
+INSERT INTO `sys_oper_log` VALUES (1247, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835512);
+INSERT INTO `sys_oper_log` VALUES (1248, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628835512);
+INSERT INTO `sys_oper_log` VALUES (1249, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836684);
+INSERT INTO `sys_oper_log` VALUES (1250, '', 0, '/system/tools/gen/dataList', 'GET', 1, 'demo', '', '/system/tools/gen/dataList?pageNum=1&pageSize=10', '[::1]', '内网IP', '{\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836688);
+INSERT INTO `sys_oper_log` VALUES (1251, '', 0, '/system/tools/gen/importTableSave', 'POST', 1, 'demo', '', '/system/tools/gen/importTableSave?tables=sp_listinfo', '[::1]', '内网IP', '{\"tables\":\"sp_listinfo\"}', '{\"code\":0,\"msg\":\"导入数据表成功\"}', 1, '', 1628836691);
+INSERT INTO `sys_oper_log` VALUES (1252, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836691);
+INSERT INTO `sys_oper_log` VALUES (1253, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=2&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"2\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836694);
+INSERT INTO `sys_oper_log` VALUES (1254, '', 0, '/system/config/dict/optionSelect', 'GET', 1, 'demo', '', '/system/config/dict/optionSelect', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836698);
+INSERT INTO `sys_oper_log` VALUES (1255, '', 0, '/system/tools/gen/columnList', 'GET', 1, 'demo', '', '/system/tools/gen/columnList?tableId=47', '[::1]', '内网IP', '{\"tableId\":\"47\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836698);
+INSERT INTO `sys_oper_log` VALUES (1256, '', 0, '/system/tools/gen/editSave', 'PUT', 1, 'demo', '', '/system/tools/gen/editSave', '[::1]', '内网IP', '{\"business_name\":\"listinfo\",\"class_name\":\"sp_listinfo\",\"columns\":[{\"column_comment\":\"单号\",\"column_id\":490,\"column_name\":\"sp_no\",\"column_type\":\"varchar(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"SpNo\",\"go_type\":\"string\",\"html_field\":\"spNo\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"1\",\"is_query\":\"1\",\"is_required\":\"1\",\"query_type\":\"EQ\",\"sort\":1,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"门店问题工单名字\",\"column_id\":491,\"column_name\":\"sp_name\",\"column_type\":\"varchar(150)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"SpName\",\"go_type\":\"string\",\"html_field\":\"spName\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"1\",\"query_type\":\"LIKE\",\"sort\":2,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"发起时间\",\"column_id\":492,\"column_name\":\"apply_time\",\"column_type\":\"datetime\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ApplyTime\",\"go_type\":\"Time\",\"html_field\":\"applyTime\",\"html_type\":\"datetime\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":3,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"发起用户id\",\"column_id\":493,\"column_name\":\"applyer_userid\",\"column_type\":\"varchar(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ApplyerUserid\",\"go_type\":\"string\",\"html_field\":\"applyerUserid\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":4,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"审批详情数组\",\"column_id\":494,\"column_name\":\"sp_record\",\"column_type\":\"text\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"SpRecord\",\"go_type\":\"string\",\"html_field\":\"spRecord\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":5,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"审批状态\",\"column_id\":495,\"column_name\":\"sp_record_sp_status\",\"column_type\":\"int(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"SpRecordSpStatus\",\"go_type\":\"int\",\"html_field\":\"spRecordSpStatus\",\"html_type\":\"radio\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"1\",\"query_type\":\"EQ\",\"sort\":6,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"审批人id\",\"column_id\":496,\"column_name\":\"details_userid\",\"column_type\":\"varchar(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"DetailsUserid\",\"go_type\":\"string\",\"html_field\":\"detailsUserid\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":7,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"审批意见\",\"column_id\":497,\"column_name\":\"details_speech\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"DetailsSpeech\",\"go_type\":\"string\",\"html_field\":\"detailsSpeech\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":8,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"分支审批状态2是同意状态\",\"column_id\":498,\"column_name\":\"details_sp_status\",\"column_type\":\"int(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"DetailsSpStatus\",\"go_type\":\"int\",\"html_field\":\"detailsSpStatus\",\"html_type\":\"radio\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"1\",\"query_type\":\"EQ\",\"sort\":9,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"审批时间\",\"column_id\":499,\"column_name\":\"details_sptime\",\"column_type\":\"datetime\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"DetailsSptime\",\"go_type\":\"Time\",\"html_field\":\"detailsSptime\",\"html_type\":\"datetime\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":10,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"问题类型\",\"column_id\":500,\"column_name\":\"value_proble\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueProble\",\"go_type\":\"string\",\"html_field\":\"valueProble\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":11,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"报修类型\",\"column_id\":501,\"column_name\":\"value_repair\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueRepair\",\"go_type\":\"string\",\"html_field\":\"valueRepair\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":12,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"报修区域\",\"column_id\":502,\"column_name\":\"value_region\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueRegion\",\"go_type\":\"string\",\"html_field\":\"valueRegion\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":13,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"故障描述\",\"column_id\":503,\"column_name\":\"value_describe\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueDescribe\",\"go_type\":\"string\",\"html_field\":\"valueDescribe\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":14,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"报修门店\",\"column_id\":504,\"column_name\":\"value_store\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueStore\",\"go_type\":\"string\",\"html_field\":\"valueStore\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":15,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"定义标签\",\"column_id\":505,\"column_name\":\"value_label\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueLabel\",\"go_type\":\"string\",\"html_field\":\"valueLabel\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":16,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"定义标签补充\",\"column_id\":506,\"column_name\":\"value_label_sup\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueLabelSup\",\"go_type\":\"string\",\"html_field\":\"valueLabelSup\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":17,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"备注人id\",\"column_id\":507,\"column_name\":\"comment_userid\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"CommentUserid\",\"go_type\":\"string\",\"html_field\":\"commentUserid\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":18,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"备注人时间\",\"column_id\":508,\"column_name\":\"commenttime\",\"column_type\":\"datetime\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"Commenttime\",\"go_type\":\"Time\",\"html_field\":\"commenttime\",\"html_type\":\"datetime\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":19,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"备注问题内容\",\"column_id\":509,\"column_name\":\"commentcontent\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"Commentcontent\",\"go_type\":\"string\",\"html_field\":\"commentcontent\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":20,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"备注\",\"column_id\":510,\"column_name\":\"remarks\",\"column_type\":\"varchar(255)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"Remarks\",\"go_type\":\"string\",\"html_field\":\"remarks\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":21,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"}],\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"function_author\":\"gfast\",\"function_name\":\"listinfo\",\"module_name\":\"module\",\"options\":\"\",\"package_name\":\"gfast\",\"params\":{},\"remark\":\"门店问题工单详情\",\"table_comment\":\"门店问题工单详情\",\"table_id\":47,\"table_name\":\"sp_listinfo\",\"tpl_category\":\"crud\",\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"}', '{\"code\":0,\"msg\":\"设置成功\"}', 1, '', 1628836785);
+INSERT INTO `sys_oper_log` VALUES (1257, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836786);
+INSERT INTO `sys_oper_log` VALUES (1258, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=2&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"2\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836787);
+INSERT INTO `sys_oper_log` VALUES (1259, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836836);
+INSERT INTO `sys_oper_log` VALUES (1260, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836837);
+INSERT INTO `sys_oper_log` VALUES (1261, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836837);
+INSERT INTO `sys_oper_log` VALUES (1262, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=2&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"2\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836838);
+INSERT INTO `sys_oper_log` VALUES (1263, '', 0, '/system/config/dict/optionSelect', 'GET', 1, 'demo', '', '/system/config/dict/optionSelect', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836844);
+INSERT INTO `sys_oper_log` VALUES (1264, '', 0, '/system/tools/gen/columnList', 'GET', 1, 'demo', '', '/system/tools/gen/columnList?tableId=47', '[::1]', '内网IP', '{\"tableId\":\"47\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836844);
+INSERT INTO `sys_oper_log` VALUES (1265, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628836848);
+INSERT INTO `sys_oper_log` VALUES (1266, '', 0, '/system/config/dict/optionSelect', 'GET', 1, 'demo', '', '/system/config/dict/optionSelect', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628838628);
+INSERT INTO `sys_oper_log` VALUES (1267, '', 0, '/system/tools/gen/columnList', 'GET', 1, 'demo', '', '/system/tools/gen/columnList?tableId=46', '[::1]', '内网IP', '{\"tableId\":\"46\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628838629);
+INSERT INTO `sys_oper_log` VALUES (1268, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=2&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"2\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628838632);
+INSERT INTO `sys_oper_log` VALUES (1269, '', 0, '/system/config/dict/optionSelect', 'GET', 1, 'demo', '', '/system/config/dict/optionSelect', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628838636);
+INSERT INTO `sys_oper_log` VALUES (1270, '', 0, '/system/tools/gen/columnList', 'GET', 1, 'demo', '', '/system/tools/gen/columnList?tableId=47', '[::1]', '内网IP', '{\"tableId\":\"47\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628838636);
+INSERT INTO `sys_oper_log` VALUES (1271, '', 0, '/system/tools/gen/editSave', 'PUT', 1, 'demo', '', '/system/tools/gen/editSave', '[::1]', '内网IP', '{\"business_name\":\"listinfo\",\"class_name\":\"sp_listinfo\",\"columns\":[{\"column_comment\":\"单号\",\"column_id\":490,\"column_name\":\"sp_no\",\"column_type\":\"varchar(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"SpNo\",\"go_type\":\"string\",\"html_field\":\"spNo\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"1\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":1,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"门店问题工单名字\",\"column_id\":491,\"column_name\":\"sp_name\",\"column_type\":\"varchar(150)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"SpName\",\"go_type\":\"string\",\"html_field\":\"spName\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"1\",\"query_type\":\"LIKE\",\"sort\":2,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"发起时间\",\"column_id\":492,\"column_name\":\"apply_time\",\"column_type\":\"datetime\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ApplyTime\",\"go_type\":\"Time\",\"html_field\":\"applyTime\",\"html_type\":\"datetime\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":3,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"发起用户id\",\"column_id\":493,\"column_name\":\"applyer_userid\",\"column_type\":\"varchar(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ApplyerUserid\",\"go_type\":\"string\",\"html_field\":\"applyerUserid\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":4,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"审批详情数组\",\"column_id\":494,\"column_name\":\"sp_record\",\"column_type\":\"text\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"SpRecord\",\"go_type\":\"string\",\"html_field\":\"spRecord\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":5,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"审批状态\",\"column_id\":495,\"column_name\":\"sp_record_sp_status\",\"column_type\":\"int(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"SpRecordSpStatus\",\"go_type\":\"int\",\"html_field\":\"spRecordSpStatus\",\"html_type\":\"radio\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"1\",\"query_type\":\"EQ\",\"sort\":6,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"审批人id\",\"column_id\":496,\"column_name\":\"details_userid\",\"column_type\":\"varchar(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"DetailsUserid\",\"go_type\":\"string\",\"html_field\":\"detailsUserid\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":7,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"审批意见\",\"column_id\":497,\"column_name\":\"details_speech\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"DetailsSpeech\",\"go_type\":\"string\",\"html_field\":\"detailsSpeech\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":8,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"分支审批状态2是同意状态\",\"column_id\":498,\"column_name\":\"details_sp_status\",\"column_type\":\"int(100)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"DetailsSpStatus\",\"go_type\":\"int\",\"html_field\":\"detailsSpStatus\",\"html_type\":\"radio\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"1\",\"query_type\":\"EQ\",\"sort\":9,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"审批时间\",\"column_id\":499,\"column_name\":\"details_sptime\",\"column_type\":\"datetime\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"DetailsSptime\",\"go_type\":\"Time\",\"html_field\":\"detailsSptime\",\"html_type\":\"datetime\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":10,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"问题类型\",\"column_id\":500,\"column_name\":\"value_proble\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueProble\",\"go_type\":\"string\",\"html_field\":\"valueProble\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":11,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"报修类型\",\"column_id\":501,\"column_name\":\"value_repair\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueRepair\",\"go_type\":\"string\",\"html_field\":\"valueRepair\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":12,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"报修区域\",\"column_id\":502,\"column_name\":\"value_region\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueRegion\",\"go_type\":\"string\",\"html_field\":\"valueRegion\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":13,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"故障描述\",\"column_id\":503,\"column_name\":\"value_describe\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueDescribe\",\"go_type\":\"string\",\"html_field\":\"valueDescribe\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":14,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"报修门店\",\"column_id\":504,\"column_name\":\"value_store\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueStore\",\"go_type\":\"string\",\"html_field\":\"valueStore\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":15,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"定义标签\",\"column_id\":505,\"column_name\":\"value_label\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueLabel\",\"go_type\":\"string\",\"html_field\":\"valueLabel\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":16,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"定义标签补充\",\"column_id\":506,\"column_name\":\"value_label_sup\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"ValueLabelSup\",\"go_type\":\"string\",\"html_field\":\"valueLabelSup\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":17,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"备注人id\",\"column_id\":507,\"column_name\":\"comment_userid\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"CommentUserid\",\"go_type\":\"string\",\"html_field\":\"commentUserid\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":18,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"备注人时间\",\"column_id\":508,\"column_name\":\"commenttime\",\"column_type\":\"datetime\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"Commenttime\",\"go_type\":\"Time\",\"html_field\":\"commenttime\",\"html_type\":\"datetime\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":19,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"备注问题内容\",\"column_id\":509,\"column_name\":\"commentcontent\",\"column_type\":\"varchar(200)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"Commentcontent\",\"go_type\":\"string\",\"html_field\":\"commentcontent\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":20,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"},{\"column_comment\":\"备注\",\"column_id\":510,\"column_name\":\"remarks\",\"column_type\":\"varchar(255)\",\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"dict_type\":\"\",\"go_field\":\"Remarks\",\"go_type\":\"string\",\"html_field\":\"remarks\",\"html_type\":\"input\",\"is_edit\":\"1\",\"is_increment\":\"0\",\"is_insert\":\"1\",\"is_list\":\"1\",\"is_pk\":\"0\",\"is_query\":\"1\",\"is_required\":\"0\",\"query_type\":\"EQ\",\"sort\":21,\"table_id\":47,\"update_by\":\"\",\"update_time\":\"2021-08-13 14:38:11\"}],\"create_by\":\"demo\",\"create_time\":\"2021-08-13 14:38:11\",\"function_author\":\"gfast\",\"function_name\":\"listinfo\",\"module_name\":\"module\",\"options\":\"\",\"package_name\":\"gfast\",\"params\":{},\"remark\":\"门店问题工单详情\",\"table_comment\":\"门店问题工单详情\",\"table_id\":47,\"table_name\":\"sp_listinfo\",\"tpl_category\":\"crud\",\"update_by\":\"demo\",\"update_time\":\"2021-08-13 14:39:45\"}', '{\"code\":0,\"msg\":\"设置成功\"}', 1, '', 1628838644);
+INSERT INTO `sys_oper_log` VALUES (1272, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628838645);
+INSERT INTO `sys_oper_log` VALUES (1273, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=2&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"2\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628838646);
+INSERT INTO `sys_oper_log` VALUES (1274, '', 0, '/system/tools/gen/batchGenCode', 'GET', 1, 'demo', '', '/system/tools/gen/batchGenCode?tables=47', '[::1]', '内网IP', '{\"tables\":\"47\"}', '', 0, '', 1628838648);
+INSERT INTO `sys_oper_log` VALUES (1275, '', 0, '/system/index/getInfo', 'GET', 1, 'demo', '', '/system/index/getInfo', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628838732);
+INSERT INTO `sys_oper_log` VALUES (1276, '', 0, '/system/index/getRouters', 'GET', 1, 'demo', '', '/system/index/getRouters', '[::1]', '内网IP', '{}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628838732);
+INSERT INTO `sys_oper_log` VALUES (1277, '', 0, '/system/tools/gen/tableList', 'GET', 1, 'demo', '', '/system/tools/gen/tableList?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"ok\"}', 1, '', 1628838733);
+INSERT INTO `sys_oper_log` VALUES (1278, '在线用户', 0, '/system/monitor/online/list', 'GET', 1, 'demo', '', '/system/monitor/online/list?pageNum=1&pageSize=10', '[::1]', '内网IP', '{\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"用户在线状态\"}', 1, '', 1628839968);
+INSERT INTO `sys_oper_log` VALUES (1279, '', 0, '/system/monitor/loginlog/list', 'GET', 1, 'demo', '', '/system/monitor/loginlog/list?pageNum=1&pageSize=10&beginTime=&endTime=', '[::1]', '内网IP', '{\"beginTime\":\"\",\"endTime\":\"\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"登录日志列表\"}', 1, '', 1628839972);
+INSERT INTO `sys_oper_log` VALUES (1280, '', 0, '/system/monitor/loginlog/list', 'GET', 1, 'demo', '', '/system/monitor/loginlog/list?pageNum=1&pageSize=10&beginTime=2021-08-13&endTime=2021-08-31', '[::1]', '内网IP', '{\"beginTime\":\"2021-08-13\",\"endTime\":\"2021-08-31\",\"pageNum\":\"1\",\"pageSize\":\"10\"}', '{\"code\":0,\"msg\":\"登录日志列表\"}', 1, '', 1628839989);
 
 -- ----------------------------
 -- Table structure for sys_post
@@ -2703,7 +2996,7 @@ INSERT INTO `user` VALUES (22, 'yxfmlbb', '15969423326', 'yxf', 0, 1557715675, '
 INSERT INTO `user` VALUES (23, 'wangming', '13699888855', '王明', 0, 0, 'IJ1xz+Wve+ZONVMFfXJQMw==', 1, '', 0, '', 0, '', 0, '', 1);
 INSERT INTO `user` VALUES (24, 'zhk', '13699885591', '综合科', 0, 0, 'IZNU7Pn91/++830Pi6HAWA==', 1, '', 0, '', 1569288069, '192.168.0.146', 0, '', 1);
 INSERT INTO `user` VALUES (28, 'demo3', '18699888855', '测试账号1', 0, 1581314035, '9OFlt5qzzvCiZWhe7ilcLA==', 1, '', 0, '', 0, '', 0, '', 1);
-INSERT INTO `user` VALUES (31, 'demo', '18699888856', '测试账号', 0, 1581314770, '9OFlt5qzzvCiZWhe7ilcLA==', 1, '223@qq.com', 2, 'pub_upload/2020-09-03/c5disauti1wogasemy.jpeg', 1628814215, '[::1]', 109, '', 1);
+INSERT INTO `user` VALUES (31, 'demo', '18699888856', '测试账号', 0, 1581314770, '9OFlt5qzzvCiZWhe7ilcLA==', 1, '223@qq.com', 2, 'pub_upload/2020-09-03/c5disauti1wogasemy.jpeg', 1628835454, '[::1]', 109, '', 1);
 INSERT INTO `user` VALUES (32, 'demo100', '18699888859', '测试账号1', 0, 1582103659, '9OFlt5qzzvCiZWhe7ilcLA==', 1, '', 0, '', 0, '', 0, '', 1);
 INSERT INTO `user` VALUES (33, 'demo110', '18699888853', '测试账号1', 0, 1582109337, '9OFlt5qzzvCiZWhe7ilcLA==', 1, '', 0, '', 0, '', 0, '', 1);
 
@@ -2722,7 +3015,7 @@ CREATE TABLE `user_online`  (
   `os` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '' COMMENT '操作系统',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `uni_token`(`token`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 16408 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户在线状态表' ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 16411 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '用户在线状态表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_online
@@ -2750,6 +3043,9 @@ INSERT INTO `user_online` VALUES (16403, 'b867ed5f5d19f350555c9958214f67f5', 'r7
 INSERT INTO `user_online` VALUES (16404, '8c702ac68baff0170e479f14bb510423', 'r7P03Dwb+twLFBg4HOF5zedr9aZ+sJYT1wdYAlGy5wIWmuSJ3gSo20ugVQ1eEK5PRl0yAqtatrIapjYY9+0PB33GLA5sBpuvBTgU3aleZSWP91KodM+1F4E3qFhtS/VfAMfJXtEE2qCF8lSm6tjFZQ==', 1628754944, 'demo', '[::1]', 'Chrome', 'Windows 10');
 INSERT INTO `user_online` VALUES (16406, 'e5d54983affead5270bfbea1caf54884', 'r7P03Dwb+twLFBg4HOF5zedr9aZ+sJYT1wdYAlGy5wIWmuSJ3gSo20ugVQ1eEK5PRl0yAqtatrIapjYY9+0PB7Ucpl92SvG0M5OGn5adUR84CxQrQm3oWx8dbjqJsfhMuWWgT2BiUHHYvyQh751QcQ==', 1628759080, 'demo', '[::1]', 'Chrome', 'Windows 10');
 INSERT INTO `user_online` VALUES (16407, '7a219a8e39b891743ede15d2024089b2', 'r7P03Dwb+twLFBg4HOF5zedr9aZ+sJYT1wdYAlGy5wIWmuSJ3gSo20ugVQ1eEK5PRl0yAqtatrIapjYY9+0PB6J/Fk+ZX2FSpDThFbcBlZcty3raApVoqInsB5ExSuGDoz+2iFKms6rgiLQI/3MGmg==', 1628814215, 'demo', '[::1]', 'Chrome', 'Windows 10');
+INSERT INTO `user_online` VALUES (16408, 'fcbbbc220250c7312d9a9d2cc07664b2', 'r7P03Dwb+twLFBg4HOF5zedr9aZ+sJYT1wdYAlGy5wIWmuSJ3gSo20ugVQ1eEK5PRl0yAqtatrIapjYY9+0PBy0NOJec8HNfNtetKdAXD9TtiTf4qZWexI3pRQiu2FibUexxEyhQpIg5WmxRqxdZew==', 1628831465, 'demo', '[::1]', 'Chrome', 'Windows 10');
+INSERT INTO `user_online` VALUES (16409, '542431d35f42832b58978cab9112b50c', 'r7P03Dwb+twLFBg4HOF5zedr9aZ+sJYT1wdYAlGy5wIWmuSJ3gSo20ugVQ1eEK5PRl0yAqtatrIapjYY9+0PBwHRoAtm2UqYTBVAUr9eDGIdx1eg6twTzWPT2EaG2RNYt9zX6xoPbJXw+nE1mzmOUw==', 1628832173, 'demo', '[::1]', 'Chrome', 'Windows 10');
+INSERT INTO `user_online` VALUES (16410, '7c5a789247a30fdd0e2ea2de44e963e6', 'r7P03Dwb+twLFBg4HOF5zedr9aZ+sJYT1wdYAlGy5wIWmuSJ3gSo20ugVQ1eEK5PRl0yAqtatrIapjYY9+0PBzADqLv3y88aIbgPPurvZnSO+lOTh8sm0A8yd9p3k4GpVa+JF+fh9v3p2lcmdF31+w==', 1628835454, 'demo', '[::1]', 'Chrome', 'Windows 10');
 
 -- ----------------------------
 -- Table structure for user_post
