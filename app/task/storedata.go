@@ -109,6 +109,11 @@ func Storedata(data Storeinfo) {
 
 	// entity.SpRecordSpStatus = data.Info.SpRecord
 	fmt.Println("....................................77777777777777777")
+
+	fmt.Println(entity.CommentUserid)
+	fmt.Println(entity.Commentcontent)
+	fmt.Println(entity.Commenttime)
+
 	fmt.Println(entity.ValueDescribe)
 	fmt.Println(entity.ValueLabelSup)
 	fmt.Println("....................................77777777777777777")
