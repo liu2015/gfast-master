@@ -8,14 +8,13 @@ import (
 	listinfoModel "gfast/app/model/module/listinfo"
 )
 
-
 // AddSave 添加
 func AddSave(req *listinfoModel.AddReq) error {
 	return listinfoModel.AddSave(req)
 }
 
 // DeleteByIds 删除
-func DeleteByIds(Ids [] string) error {
+func DeleteByIds(Ids []string) error {
 	return listinfoModel.DeleteByIds(Ids)
 }
 
@@ -32,4 +31,9 @@ func GetByID(id string) (*listinfoModel.Entity, error) {
 // SelectListByPage 分页查询
 func SelectListByPage(req *listinfoModel.SelectPageReq) (total int, page int, list []*listinfoModel.Entity, err error) {
 	return listinfoModel.SelectListByPage(req)
+}
+
+// SelectList 饼状图数据
+func SelectListpic(req *listinfoModel.SelectPageReq) (test []map[string]interface{}, err error) {
+	return listinfoModel.SelectListpic(req)
 }

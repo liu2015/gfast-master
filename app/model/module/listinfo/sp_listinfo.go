@@ -408,3 +408,28 @@ func SelectListAll(req *SelectPageReq) (list []*Entity, err error) {
 	}
 	return
 }
+
+// SelectListAll 获取所有数据
+func SelectListpic(req *SelectPageReq) (test []map[string]interface{}, err error) {
+	// applyer_userid  commenttime
+	db := g.DB("default")
+	if req.ApplyTime != nil || req.Commenttime != nil {
+
+		if req.ApplyTime == nil {
+
+			req.ApplyTime = gtime.New("2020-08-09 11:18:39")
+		}
+		if req.Commenttime == nil {
+			req.Commenttime = gtime.New(gtime.Datetime())
+		}
+		list, err := db.GetAll("SELECT count(comment_userid) as value,comment_userid as name FROM `sp_listinfo` where `apply_time`>=? and `commenttime` <= ? GROUP BY `comment_userid` ", req.ApplyTime, req.Commenttime)
+		test = list.List()
+		return test, err
+	} else {
+
+		list, err := db.GetAll("SELECT count(comment_userid) as value,comment_userid as name FROM `sp_listinfo`  GROUP BY `comment_userid` ")
+		test = list.List()
+		return test, err
+	}
+
+}
