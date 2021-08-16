@@ -422,12 +422,40 @@ func SelectListpic(req *SelectPageReq) (test []map[string]interface{}, err error
 		if req.Commenttime == nil {
 			req.Commenttime = gtime.New(gtime.Datetime())
 		}
-		list, err := db.GetAll("SELECT count(comment_userid) as value,comment_userid as name FROM `sp_listinfo` where `apply_time`>=? and `commenttime` <= ? GROUP BY `comment_userid` ", req.ApplyTime, req.Commenttime)
+		list, err := db.GetAll("SELECT count(comment_userid) as value,comment_userid as name FROM `sp_listinfo` where `apply_time`>=? and `commenttime` <= ?  and comment_userid!='' GROUP BY `comment_userid` ORDER BY `value` DESC  limit 10", req.ApplyTime, req.Commenttime)
 		test = list.List()
 		return test, err
 	} else {
 
-		list, err := db.GetAll("SELECT count(comment_userid) as value,comment_userid as name FROM `sp_listinfo`  GROUP BY `comment_userid` ")
+		list, err := db.GetAll("SELECT count(comment_userid) as value,comment_userid as name FROM `sp_listinfo` where comment_userid!=''   GROUP BY `comment_userid` ORDER BY `value` DESC  limit 10")
+		test = list.List()
+		return test, err
+	}
+
+}
+
+// select DATE_FORMAT(commenttime,'%m-%d') as name, COUNT(commenttime) as value  from sp_listinfo  where commenttime!='' GROUP BY  `name`
+
+// SelectList 或者折线图 获取所有数据
+func SelectListcat(req *SelectPageReq) (test []map[string]interface{}, err error) {
+	// applyer_userid  commenttime
+	db := g.DB("default")
+	if req.ApplyTime != nil || req.Commenttime != nil {
+
+		if req.ApplyTime == nil {
+
+			req.ApplyTime = gtime.New("2020-08-09 11:18:39")
+		}
+		if req.Commenttime == nil {
+			req.Commenttime = gtime.New(gtime.Datetime())
+		}
+		list, err := db.GetAll("select DATE_FORMAT(commenttime,'%m-%d') as name, COUNT(commenttime) as value  from sp_listinfo  where commenttime!='' and `apply_time`>=? and `commenttime` <= ?    GROUP BY  `name` ORDER BY `name` ASC", req.ApplyTime, req.Commenttime)
+		test = list.List()
+		return test, err
+	} else {
+
+		// 获得年月日的统计数据
+		list, err := db.GetAll("select DATE_FORMAT(commenttime,'%m-%d') as name, COUNT(commenttime) as value  from sp_listinfo  where   commenttime!=''   GROUP BY  `name` ORDER BY `name` ASC")
 		test = list.List()
 		return test, err
 	}
