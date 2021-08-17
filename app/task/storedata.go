@@ -122,18 +122,21 @@ func Storedata(data Storeinfo) {
 
 	// 保存到数据库
 	listinfo.AddSaveadd(&entity)
+	// var test listinfo.SelectPageReq
+	// test.Commentcontent = ""
 
 	// entity.SpRecordSpStatus = data.Info.SpRecord
 	fmt.Println("....................................77777777777777777")
-	fmt.Println(entity)
+	// listinfo.SelectListcat(&test)
+	// fmt.Println(entity)
 	fmt.Println("....................................77777777777777777")
-	fmt.Println(entity.Remarks)
+	// fmt.Println(entity.Remarks)
 
-	fmt.Println(entity.CommentUserid)
-	fmt.Println(entity.Commentcontent)
-	fmt.Println(entity.Commenttime)
+	// fmt.Println(entity.CommentUserid)
+	// fmt.Println(entity.Commentcontent)
+	// fmt.Println(entity.Commenttime)
 
-	fmt.Println(entity.ValueDescribe)
-	fmt.Println(entity.ValueLabelSup)
+	// fmt.Println(entity.ValueDescribe)
+	// fmt.Println(entity.ValueLabelSup)
 	fmt.Println("....................................77777777777777777")
 }

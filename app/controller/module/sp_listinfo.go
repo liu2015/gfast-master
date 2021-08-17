@@ -5,6 +5,7 @@
 package module
 
 import (
+	"fmt"
 	listinfoModel "gfast/app/model/module/listinfo"
 	listinfoService "gfast/app/service/module/listinfo_service"
 	"gfast/library/response"
@@ -39,11 +40,21 @@ func (c *Listinfo) List(r *ghttp.Request) {
 	if err != nil {
 		response.FailJson(true, r, err.Error())
 	}
+
+	listcat, listinttest, err2 := listinfoService.SelectListcat(req)
+	if err2 != nil {
+		response.FailJson(true, r, err2.Error())
+	}
+	fmt.Println(listcat)
+	// 遍历下list listcat
+
 	result := g.Map{
 		"currentPage": page,
 		"total":       total,
 		"list":        list,
 		"pic":         pic,
+		"cat":         listcat,
+		"catvalue":    listinttest,
 	}
 	response.SusJson(true, r, "获取列表数据成功", result)
 }

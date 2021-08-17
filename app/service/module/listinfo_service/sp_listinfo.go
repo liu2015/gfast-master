@@ -37,3 +37,25 @@ func SelectListByPage(req *listinfoModel.SelectPageReq) (total int, page int, li
 func SelectListpic(req *listinfoModel.SelectPageReq) (test []map[string]interface{}, err error) {
 	return listinfoModel.SelectListpic(req)
 }
+
+// SelectListcat
+// SelectList 饼状图数据
+func SelectListcat(req *listinfoModel.SelectPageReq) (Nametest1 []string, Valuetest1 []int, err error) {
+
+	// 遍历结果集，然后拆分成两个
+	test1, err := listinfoModel.SelectListcat(req)
+
+	// 初始化数组结果
+	var Nametest []string
+	Nametest = make([]string, 0)
+	var Valuetest []int
+	Valuetest = make([]int, 0)
+
+	for _, v := range test1 {
+		Nametest = append(Nametest, v.Name)
+		Valuetest = append(Valuetest, v.Value)
+
+	}
+
+	return Nametest, Valuetest, err
+}

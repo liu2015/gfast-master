@@ -5,10 +5,18 @@
 package listinfo
 
 import (
+	"fmt"
+
 	"github.com/gogf/gf/errors/gerror"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/os/gtime"
+	"github.com/gogf/gf/util/gconv"
 )
+
+type Info struct {
+	Name  string `json:"name"`
+	Value int    `json:"value"`
+}
 
 // AddReq 用于存储新增请求的请求参数
 type AddReq struct {
@@ -437,7 +445,9 @@ func SelectListpic(req *SelectPageReq) (test []map[string]interface{}, err error
 // select DATE_FORMAT(commenttime,'%m-%d') as name, COUNT(commenttime) as value  from sp_listinfo  where commenttime!='' GROUP BY  `name`
 
 // SelectList 或者折线图 获取所有数据
-func SelectListcat(req *SelectPageReq) (test []map[string]interface{}, err error) {
+func SelectListcat(req *SelectPageReq) (test []Info, err error) {
+
+	var info []Info
 	// applyer_userid  commenttime
 	db := g.DB("default")
 	if req.ApplyTime != nil || req.Commenttime != nil {
@@ -449,15 +459,22 @@ func SelectListcat(req *SelectPageReq) (test []map[string]interface{}, err error
 		if req.Commenttime == nil {
 			req.Commenttime = gtime.New(gtime.Datetime())
 		}
-		list, err := db.GetAll("select DATE_FORMAT(commenttime,'%m-%d') as name, COUNT(commenttime) as value  from sp_listinfo  where commenttime!='' and `apply_time`>=? and `commenttime` <= ?    GROUP BY  `name` ORDER BY `name` ASC", req.ApplyTime, req.Commenttime)
-		test = list.List()
-		return test, err
+		list, err := db.GetAll("select DATE_FORMAT(commenttime,'%m-%d') as name, COUNT(commenttime) as value  from sp_listinfo  where commenttime!='' and `apply_time`>=? and `commenttime` <= ?    GROUP BY  `name` ORDER BY `name` ASC  limit 30", req.ApplyTime, req.Commenttime)
+		err = gconv.Scan(list, &info)
+
+		return info, err
 	} else {
 
 		// 获得年月日的统计数据
-		list, err := db.GetAll("select DATE_FORMAT(commenttime,'%m-%d') as name, COUNT(commenttime) as value  from sp_listinfo  where   commenttime!=''   GROUP BY  `name` ORDER BY `name` ASC")
-		test = list.List()
-		return test, err
+		list, err := db.GetAll("select DATE_FORMAT(commenttime,'%m-%d') as name, COUNT(commenttime) as value  from sp_listinfo  where   commenttime!=''   GROUP BY  `name` ORDER BY `name` ASC limit 30")
+
+		err12 := gconv.Scan(list, &info)
+
+		if err12 != nil {
+			fmt.Println(err12)
+		}
+
+		return info, err
 	}
 
 }
