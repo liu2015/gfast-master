@@ -83,31 +83,61 @@ func Storedata(data Storeinfo) {
 		}
 
 		optionstest := v.Value.Selector.Options
-		for _, v := range optionstest {
-			// v.Key
-			if v.Key == "option-1610416725331" {
-				for _, v := range v.Value {
-					// 问题类型
+		// 修复一个问题,用id锚定 value 的值.
+		if v.ID == "Selector-1594172032266" {
+			for _, v1 := range optionstest {
+				for _, v := range v1.Value {
+					// 报修类型
 					entity.ValueProble = v.Text
 				}
 			}
-			// v.Key
-			if v.Key == "option-1610416643520" {
-				for _, v := range v.Value {
-					// 报修类型-区域
+		}
+
+		if v.ID == "Selector-1594171985029" {
+			for _, v1 := range optionstest {
+				for _, v := range v1.Value {
+					// 报修区域
 					entity.ValueRegion = v.Text
 				}
 			}
+		}
 
-			// v.Key
-			if v.Key == "option-1614774483730" {
-				for _, v := range v.Value {
-					// 问题定义
+		if v.ID == "Selector-1614774464912" {
+			for _, v1 := range optionstest {
+				for _, v := range v1.Value {
+					// 标签定义问题
 					entity.ValueLabel = v.Text
 				}
 			}
-
 		}
+
+		// for _, v := range optionstest {
+
+		// 	// v.Key
+		// 	// option-1614774483740
+		// 	if v.Key == "option-1610416725331" {
+		// 		for _, v := range v.Value {
+		// 			// 问题类型
+		// 			entity.ValueProble = v.Text
+		// 		}
+		// 	}
+		// 	// v.Key
+		// 	if v.Key == "option-1610416643520" {
+		// 		for _, v := range v.Value {
+		// 			// 报修类型-区域
+		// 			entity.ValueRegion = v.Text
+		// 		}
+		// 	}
+
+		// 	// v.Key
+		// 	if v.Key == "option-1614774483730" {
+		// 		for _, v := range v.Value {
+		// 			// 问题定义
+		// 			entity.ValueLabel = v.Text
+		// 		}
+		// 	}
+
+		// }
 	}
 
 	// 计算从发起时间到备注时间的共计耗时时间 timedata,  endtime
@@ -122,13 +152,14 @@ func Storedata(data Storeinfo) {
 
 	// 保存到数据库
 	listinfo.AddSaveadd(&entity)
-	// var test listinfo.SelectPageReq
-	// test.Commentcontent = ""
 
 	// entity.SpRecordSpStatus = data.Info.SpRecord
 	fmt.Println("....................................77777777777777777")
-	// listinfo.SelectListcat(&test)
-	// fmt.Println(entity)
+	// var test listinfo.SelectPageReq
+	// test.Commentcontent = ""
+	// // listinfo.SelectListcat(&test)
+	// // fmt.Println(entity)
+	// listinfo.SelectListdom(&test)
 	fmt.Println("....................................77777777777777777")
 	// fmt.Println(entity.Remarks)
 

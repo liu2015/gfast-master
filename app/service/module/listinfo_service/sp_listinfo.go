@@ -59,3 +59,24 @@ func SelectListcat(req *listinfoModel.SelectPageReq) (Nametest1 []string, Valuet
 
 	return Nametest, Valuetest, err
 }
+
+// SelectListdom
+func SelectListdom(req *listinfoModel.SelectPageReq) (Nametest1 []string, Valuetest1 []int, err error) {
+
+	// 遍历结果集，然后拆分成两个
+	test1, err := listinfoModel.SelectListdom(req)
+
+	// 初始化数组结果
+	var Nametest []string
+	Nametest = make([]string, 0)
+	var Valuetest []int
+	Valuetest = make([]int, 0)
+
+	for _, v := range test1 {
+		Nametest = append(Nametest, v.Name)
+		Valuetest = append(Valuetest, v.Value)
+
+	}
+
+	return Nametest, Valuetest, err
+}

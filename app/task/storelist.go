@@ -17,7 +17,8 @@ func Storelist() {
 	var storelist ListGenerated
 
 	endtime := int32(time.Now().Unix())
-	starttime := endtime - 604800
+	// 现在改成默认3天内的单据
+	starttime := endtime - 259200
 
 	// 结构化请求body
 	storelist.Starttime = strconv.Itoa(int(starttime))

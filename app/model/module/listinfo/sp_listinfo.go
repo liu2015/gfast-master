@@ -478,3 +478,92 @@ func SelectListcat(req *SelectPageReq) (test []Info, err error) {
 	}
 
 }
+
+// SelectListAll 获取所有数据
+func SelectListdom(req *SelectPageReq) (test []Info, err error) {
+	var info []Info
+	model := Model
+	if req != nil {
+		if req.SpNo != "" {
+			model.Where("sp_no = ?", req.SpNo)
+		}
+		if req.SpName != "" {
+			model.Where("sp_name like ?", "%"+req.SpName+"%")
+		}
+		if req.ApplyerUserid != "" {
+			model.Where("applyer_userid = ?", req.ApplyerUserid)
+		}
+		if req.SpRecord != "" {
+			model.Where("sp_record = ?", req.SpRecord)
+		}
+		if req.SpRecordSpStatus != 0 {
+			model.Where("sp_record_sp_status = ?", req.SpRecordSpStatus)
+		}
+		if req.DetailsUserid != "" {
+			model.Where("details_userid = ?", req.DetailsUserid)
+		}
+		if req.DetailsSpeech != "" {
+			model.Where("details_speech = ?", req.DetailsSpeech)
+		}
+		if req.DetailsSpStatus != 0 {
+			model.Where("details_sp_status = ?", req.DetailsSpStatus)
+		}
+		if req.ValueProble != "" {
+			model.Where("value_proble = ?", req.ValueProble)
+		}
+		if req.ValueRepair != "" {
+			model.Where("value_repair = ?", req.ValueRepair)
+		}
+		if req.ValueRegion != "" {
+			model.Where("value_region = ?", req.ValueRegion)
+		}
+		if req.ValueDescribe != "" {
+			model.Where("value_describe = ?", req.ValueDescribe)
+		}
+		if req.ValueStore != "" {
+			model.Where("value_store = ?", req.ValueStore)
+		}
+		if req.ValueLabel != "" {
+			model.Where("value_label = ?", req.ValueLabel)
+		}
+		if req.ValueLabelSup != "" {
+			model.Where("value_label_sup = ?", req.ValueLabelSup)
+		}
+		// if req.ValueLabel == "" {
+		// 	model.Where("ValueLabel != ?", "")
+		// }
+		if req.CommentUserid != "" {
+			model.Where("comment_userid = ?", req.CommentUserid)
+		}
+		if req.Commentcontent != "" {
+			model.Where("commentcontent = ?", req.Commentcontent)
+		}
+		if req.Remarks != "" {
+			model.Where("remarks = ?", req.Remarks)
+		}
+		if req.Commenttime != nil {
+			model = model.Where("commenttime <= ?", req.Commenttime)
+		}
+		if req.ApplyTime != nil {
+			model = model.Where("apply_time >= ?", req.ApplyTime)
+		}
+		model = model.Where("value_label!=''")
+
+	}
+
+	fmt.Println("99999999999999999999999")
+	fmt.Println(req)
+	fmt.Println("99999999999999999999999")
+	// model.Where("value_label!=?", "")
+
+	// 查询
+	list, err := model.Fields("COUNT(value_label) as value, value_label as name").GroupBy("value_label").Order("sp_no ASC").Limit(15).All()
+
+	gconv.Scan(list, &info)
+	if err != nil {
+		g.Log().Error(err)
+		err = gerror.New("查询失败")
+		return
+	}
+	return info, err
+}

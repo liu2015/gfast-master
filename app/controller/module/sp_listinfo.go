@@ -5,7 +5,6 @@
 package module
 
 import (
-	"fmt"
 	listinfoModel "gfast/app/model/module/listinfo"
 	listinfoService "gfast/app/service/module/listinfo_service"
 	"gfast/library/response"
@@ -45,8 +44,15 @@ func (c *Listinfo) List(r *ghttp.Request) {
 	if err2 != nil {
 		response.FailJson(true, r, err2.Error())
 	}
-	fmt.Println(listcat)
+	// fmt.Println(listcat)
 	// 遍历下list listcat
+	// 获得SelectListdom  柱状图的数据内容
+	listdomname, listdomvalue, err3 := listinfoService.SelectListdom(req)
+
+	if err3 != nil {
+		response.FailJson(true, r, err3.Error())
+
+	}
 
 	result := g.Map{
 		"currentPage": page,
@@ -55,6 +61,8 @@ func (c *Listinfo) List(r *ghttp.Request) {
 		"pic":         pic,
 		"cat":         listcat,
 		"catvalue":    listinttest,
+		"domname":     listdomname,
+		"domvalue":    listdomvalue,
 	}
 	response.SusJson(true, r, "获取列表数据成功", result)
 }
