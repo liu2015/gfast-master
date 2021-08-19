@@ -31,6 +31,8 @@ func init() {
 		group.ALL("/work", new(module.Work))
 		//listinfo
 		group.ALL("/listinfo", new(module.Listinfo))
+		// 特许工单递交
+		group.ALL("/texu_up", new(module.Texu_up))
 	})
 
 	group.Group("/system", func(group *ghttp.RouterGroup) {
