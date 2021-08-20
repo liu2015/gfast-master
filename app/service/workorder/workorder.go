@@ -144,6 +144,26 @@ func Addorder(usertest1 *texu_upModel.AddReq) {
 
 	var orderlist Franchise1
 
+	var testdaqu string
+	distrttest := usertest1.Distri
+
+	switch distrttest {
+
+	case "华中大区":
+		testdaqu = "option-1629341050876"
+	case "湖北大区":
+		testdaqu = "option-1629341050877"
+	case "华南大区":
+		testdaqu = "option-1629341050878"
+	case "华西大区":
+		testdaqu = "option-1629341050879"
+	case "华东大区":
+		testdaqu = "option-1629341050880"
+	case "华北大区":
+		testdaqu = "option-1629341050881"
+
+	}
+
 	orderlist.CreatorUserid = "LiuFuLing"
 	orderlist.TemplateID = "ZM7aMJxR35G44VxyUcaHhc2t1e7t9u5tUog83m"
 	orderlist.UseTemplateApprover = 1
@@ -237,9 +257,345 @@ func Addorder(usertest1 *texu_upModel.AddReq) {
 			Students        []interface{} "json:\"students\""
 			Classes         []interface{} "json:\"classes\""
 		}{
-			Text: "555445",
+			Text: usertest1.ProblemType,
 		},
-	})
+	}, struct {
+		Control string "json:\"control\""
+		ID      string "json:\"id\""
+		Title   []struct {
+			Text string "json:\"text\""
+			Lang string "json:\"lang\""
+		} "json:\"title\""
+		Value struct {
+			Text        string        "json:\"text\""
+			Tips        []interface{} "json:\"tips\""
+			Members     []interface{} "json:\"members\""
+			Departments []interface{} "json:\"departments\""
+			Files       []struct {
+				FileID string "json:\"file_id\""
+			} "json:\"files\""
+			Children  []interface{} "json:\"children\""
+			StatField []interface{} "json:\"stat_field\""
+			Selector  struct {
+				Type    string "json:\"type\""
+				Options []struct {
+					Key   string "json:\"key\""
+					Value []struct {
+						Text string "json:\"text\""
+						Lang string "json:\"lang\""
+					} "json:\"value\""
+				} "json:\"options\""
+			} "json:\"selector\""
+			SumField        []interface{} "json:\"sum_field\""
+			RelatedApproval []interface{} "json:\"related_approval\""
+			Students        []interface{} "json:\"students\""
+			Classes         []interface{} "json:\"classes\""
+		} "json:\"value,omitempty\""
+	}{
+		Control: "Text",
+		ID:      "Text-1629340655835",
+		Title: []struct {
+			Text string "json:\"text\""
+			Lang string "json:\"lang\""
+		}{
+			struct {
+				Text string "json:\"text\""
+				Lang string "json:\"lang\""
+			}{
+				Text: "大区分类",
+				Lang: "zh_CN",
+			},
+		}, Value: struct {
+			Text        string        "json:\"text\""
+			Tips        []interface{} "json:\"tips\""
+			Members     []interface{} "json:\"members\""
+			Departments []interface{} "json:\"departments\""
+			Files       []struct {
+				FileID string "json:\"file_id\""
+			} "json:\"files\""
+			Children  []interface{} "json:\"children\""
+			StatField []interface{} "json:\"stat_field\""
+			Selector  struct {
+				Type    string "json:\"type\""
+				Options []struct {
+					Key   string "json:\"key\""
+					Value []struct {
+						Text string "json:\"text\""
+						Lang string "json:\"lang\""
+					} "json:\"value\""
+				} "json:\"options\""
+			} "json:\"selector\""
+			SumField        []interface{} "json:\"sum_field\""
+			RelatedApproval []interface{} "json:\"related_approval\""
+			Students        []interface{} "json:\"students\""
+			Classes         []interface{} "json:\"classes\""
+		}{
+			Text: usertest1.LargeType,
+		},
+	},
+		struct {
+			Control string "json:\"control\""
+			ID      string "json:\"id\""
+			Title   []struct {
+				Text string "json:\"text\""
+				Lang string "json:\"lang\""
+			} "json:\"title\""
+			Value struct {
+				Text        string        "json:\"text\""
+				Tips        []interface{} "json:\"tips\""
+				Members     []interface{} "json:\"members\""
+				Departments []interface{} "json:\"departments\""
+				Files       []struct {
+					FileID string "json:\"file_id\""
+				} "json:\"files\""
+				Children  []interface{} "json:\"children\""
+				StatField []interface{} "json:\"stat_field\""
+				Selector  struct {
+					Type    string "json:\"type\""
+					Options []struct {
+						Key   string "json:\"key\""
+						Value []struct {
+							Text string "json:\"text\""
+							Lang string "json:\"lang\""
+						} "json:\"value\""
+					} "json:\"options\""
+				} "json:\"selector\""
+				SumField        []interface{} "json:\"sum_field\""
+				RelatedApproval []interface{} "json:\"related_approval\""
+				Students        []interface{} "json:\"students\""
+				Classes         []interface{} "json:\"classes\""
+			} "json:\"value,omitempty\""
+		}{
+			Control: "Text",
+			ID:      "Text-1629340678019",
+			Title: []struct {
+				Text string "json:\"text\""
+				Lang string "json:\"lang\""
+			}{
+				struct {
+					Text string "json:\"text\""
+					Lang string "json:\"lang\""
+				}{
+					Text: "问题描述",
+					Lang: "zh_CN",
+				},
+			}, Value: struct {
+				Text        string        "json:\"text\""
+				Tips        []interface{} "json:\"tips\""
+				Members     []interface{} "json:\"members\""
+				Departments []interface{} "json:\"departments\""
+				Files       []struct {
+					FileID string "json:\"file_id\""
+				} "json:\"files\""
+				Children  []interface{} "json:\"children\""
+				StatField []interface{} "json:\"stat_field\""
+				Selector  struct {
+					Type    string "json:\"type\""
+					Options []struct {
+						Key   string "json:\"key\""
+						Value []struct {
+							Text string "json:\"text\""
+							Lang string "json:\"lang\""
+						} "json:\"value\""
+					} "json:\"options\""
+				} "json:\"selector\""
+				SumField        []interface{} "json:\"sum_field\""
+				RelatedApproval []interface{} "json:\"related_approval\""
+				Students        []interface{} "json:\"students\""
+				Classes         []interface{} "json:\"classes\""
+			}{
+
+				Text: usertest1.Describe,
+			},
+		},
+		struct {
+			Control string "json:\"control\""
+			ID      string "json:\"id\""
+			Title   []struct {
+				Text string "json:\"text\""
+				Lang string "json:\"lang\""
+			} "json:\"title\""
+			Value struct {
+				Text        string        "json:\"text\""
+				Tips        []interface{} "json:\"tips\""
+				Members     []interface{} "json:\"members\""
+				Departments []interface{} "json:\"departments\""
+				Files       []struct {
+					FileID string "json:\"file_id\""
+				} "json:\"files\""
+				Children  []interface{} "json:\"children\""
+				StatField []interface{} "json:\"stat_field\""
+				Selector  struct {
+					Type    string "json:\"type\""
+					Options []struct {
+						Key   string "json:\"key\""
+						Value []struct {
+							Text string "json:\"text\""
+							Lang string "json:\"lang\""
+						} "json:\"value\""
+					} "json:\"options\""
+				} "json:\"selector\""
+				SumField        []interface{} "json:\"sum_field\""
+				RelatedApproval []interface{} "json:\"related_approval\""
+				Students        []interface{} "json:\"students\""
+				Classes         []interface{} "json:\"classes\""
+			} "json:\"value,omitempty\""
+		}{
+			Control: "Text",
+			ID:      "Text-1629341737680",
+			Title: []struct {
+				Text string "json:\"text\""
+				Lang string "json:\"lang\""
+			}{
+				struct {
+					Text string "json:\"text\""
+					Lang string "json:\"lang\""
+				}{
+					Text: "工单定义补充",
+					Lang: "zh_CN",
+				},
+			}, Value: struct {
+				Text        string        "json:\"text\""
+				Tips        []interface{} "json:\"tips\""
+				Members     []interface{} "json:\"members\""
+				Departments []interface{} "json:\"departments\""
+				Files       []struct {
+					FileID string "json:\"file_id\""
+				} "json:\"files\""
+				Children  []interface{} "json:\"children\""
+				StatField []interface{} "json:\"stat_field\""
+				Selector  struct {
+					Type    string "json:\"type\""
+					Options []struct {
+						Key   string "json:\"key\""
+						Value []struct {
+							Text string "json:\"text\""
+							Lang string "json:\"lang\""
+						} "json:\"value\""
+					} "json:\"options\""
+				} "json:\"selector\""
+				SumField        []interface{} "json:\"sum_field\""
+				RelatedApproval []interface{} "json:\"related_approval\""
+				Students        []interface{} "json:\"students\""
+				Classes         []interface{} "json:\"classes\""
+			}{
+
+				Text: usertest1.Labelpub,
+			},
+		}, struct {
+			Control string "json:\"control\""
+			ID      string "json:\"id\""
+			Title   []struct {
+				Text string "json:\"text\""
+				Lang string "json:\"lang\""
+			} "json:\"title\""
+			Value struct {
+				Text        string        "json:\"text\""
+				Tips        []interface{} "json:\"tips\""
+				Members     []interface{} "json:\"members\""
+				Departments []interface{} "json:\"departments\""
+				Files       []struct {
+					FileID string "json:\"file_id\""
+				} "json:\"files\""
+				Children  []interface{} "json:\"children\""
+				StatField []interface{} "json:\"stat_field\""
+				Selector  struct {
+					Type    string "json:\"type\""
+					Options []struct {
+						Key   string "json:\"key\""
+						Value []struct {
+							Text string "json:\"text\""
+							Lang string "json:\"lang\""
+						} "json:\"value\""
+					} "json:\"options\""
+				} "json:\"selector\""
+				SumField        []interface{} "json:\"sum_field\""
+				RelatedApproval []interface{} "json:\"related_approval\""
+				Students        []interface{} "json:\"students\""
+				Classes         []interface{} "json:\"classes\""
+			} "json:\"value,omitempty\""
+		}{
+			Control: "Selector",
+			ID:      "Selector-1629340996175",
+			Title: []struct {
+				Text string "json:\"text\""
+				Lang string "json:\"lang\""
+			}{
+				struct {
+					Text string "json:\"text\""
+					Lang string "json:\"lang\""
+				}{
+					Text: "工单分派",
+					Lang: "zh_CN",
+				},
+			}, Value: struct {
+				Text        string        "json:\"text\""
+				Tips        []interface{} "json:\"tips\""
+				Members     []interface{} "json:\"members\""
+				Departments []interface{} "json:\"departments\""
+				Files       []struct {
+					FileID string "json:\"file_id\""
+				} "json:\"files\""
+				Children  []interface{} "json:\"children\""
+				StatField []interface{} "json:\"stat_field\""
+				Selector  struct {
+					Type    string "json:\"type\""
+					Options []struct {
+						Key   string "json:\"key\""
+						Value []struct {
+							Text string "json:\"text\""
+							Lang string "json:\"lang\""
+						} "json:\"value\""
+					} "json:\"options\""
+				} "json:\"selector\""
+				SumField        []interface{} "json:\"sum_field\""
+				RelatedApproval []interface{} "json:\"related_approval\""
+				Students        []interface{} "json:\"students\""
+				Classes         []interface{} "json:\"classes\""
+			}{
+				Selector: struct {
+					Type    string "json:\"type\""
+					Options []struct {
+						Key   string "json:\"key\""
+						Value []struct {
+							Text string "json:\"text\""
+							Lang string "json:\"lang\""
+						} "json:\"value\""
+					} "json:\"options\""
+				}{
+					Type: "single",
+					Options: []struct {
+						Key   string "json:\"key\""
+						Value []struct {
+							Text string "json:\"text\""
+							Lang string "json:\"lang\""
+						} "json:\"value\""
+					}{
+						struct {
+							Key   string "json:\"key\""
+							Value []struct {
+								Text string "json:\"text\""
+								Lang string "json:\"lang\""
+							} "json:\"value\""
+						}{
+							Key: testdaqu, Value: []struct {
+								Text string "json:\"text\""
+								Lang string "json:\"lang\""
+							}{
+								struct {
+									Text string "json:\"text\""
+									Lang string "json:\"lang\""
+								}{
+									Text: usertest1.Distri,
+									Lang: "zh_CN",
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	)
 
 	SummaryList1 := orderlist.SummaryList
 	SummaryList1 = append(SummaryList1, struct {

@@ -430,12 +430,12 @@ func SelectListpic(req *SelectPageReq) (test []map[string]interface{}, err error
 		if req.Commenttime == nil {
 			req.Commenttime = gtime.New(gtime.Datetime())
 		}
-		list, err := db.GetAll("SELECT count(comment_userid) as value,comment_userid as name FROM `sp_listinfo` where `apply_time`>=? and `commenttime` <= ?  and comment_userid!='' GROUP BY `comment_userid` ORDER BY `value` DESC  limit 10", req.ApplyTime, req.Commenttime)
+		list, err := db.GetAll("SELECT count(comment_userid) as value,comment_userid as name FROM `sp_listinfo` where `apply_time`>=? and `commenttime` <= ?  and comment_userid!='' and sp_record_sp_status='2' GROUP BY `comment_userid` ORDER BY `value` DESC  limit 10", req.ApplyTime, req.Commenttime)
 		test = list.List()
 		return test, err
 	} else {
 
-		list, err := db.GetAll("SELECT count(comment_userid) as value,comment_userid as name FROM `sp_listinfo` where comment_userid!=''   GROUP BY `comment_userid` ORDER BY `value` DESC  limit 10")
+		list, err := db.GetAll("SELECT count(comment_userid) as value,comment_userid as name FROM `sp_listinfo` where comment_userid!='' and sp_record_sp_status='2'   GROUP BY `comment_userid` ORDER BY `value` DESC  limit 10")
 		test = list.List()
 		return test, err
 	}

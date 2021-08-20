@@ -28,28 +28,32 @@ func Storedata(data Storeinfo) {
 	sprecordtest := gconv.String(data.Info.SpRecord)
 	// 保存审核信息
 	entity.SpRecord = sprecordtest
+	sp_statustest := data.Info.SpStatus
+
+	entity.SpRecordSpStatus = sp_statustest
 
 	// 解构审核信息拿到关键值
 	sprlist := data.Info.SpRecord
 	// 遍历
 	for _, v1 := range sprlist {
-		if v1.SpStatus == 2 {
-			// 审核状态
-			entity.SpRecordSpStatus = v1.SpStatus
+		// if v1.SpStatus == 2 {
+		// 审核状态
+		// entity.SpRecordSpStatus = v1.SpStatus
+		// entity.SpRecordSpStatus = v1.SpStatus
 
-			for _, v := range v1.Details {
+		for _, v := range v1.Details {
 
-				if v.Sptime != 0 && v.SpStatus == 2 && v.Approver.Userid != "017338" && v.Approver.Userid != "jm001" && v.Approver.Userid != "004843" {
-					entity.DetailsUserid = v.Approver.Userid
-					entity.DetailsSpeech = v.Speech
-					entity.DetailsSpStatus = v.SpStatus
-					timetest := gtime.New(v.Sptime)
-					entity.DetailsSptime = timetest
+			if v.Sptime != 0 && v.SpStatus == 2 && v.Approver.Userid != "017338" && v.Approver.Userid != "jm001" && v.Approver.Userid != "004843" {
+				entity.DetailsUserid = v.Approver.Userid
+				entity.DetailsSpeech = v.Speech
+				entity.DetailsSpStatus = v.SpStatus
+				timetest := gtime.New(v.Sptime)
+				entity.DetailsSptime = timetest
 
-				}
 			}
-
 		}
+
+		// }
 	}
 
 	// 获得工单内容的test

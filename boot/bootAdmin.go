@@ -37,7 +37,7 @@ func initAdminGfToken() {
 		LoginAfterFunc:   service.LoginAfter,
 		LogoutPath:       "/sysLogin/logout",
 		AuthPaths:        g.SliceStr{"/system/*", "/module/*"},
-		AuthExcludePaths: g.SliceStr{"/module/link/*", "/module/lib_log/*"},
+		AuthExcludePaths: g.SliceStr{"/module/link/*", "/module/lib_log/*", "/module/texu_up/*"},
 
 		AuthAfterFunc:    service.AuthAfterFunc,
 		LogoutBeforeFunc: service.LoginOut,
