@@ -557,8 +557,8 @@ func SelectListdom(req *SelectPageReq) (test []Info, err error) {
 	// model.Where("value_label!=?", "")
 
 	// 查询
-	list, err := model.Fields("COUNT(value_label) as value, value_label as name").GroupBy("value_label").Order("sp_no ASC").Limit(15).All()
-
+	// list, err := model.Fields("COUNT(value_label) as value, value_label as name").GroupBy("value_label").Order("sp_no ASC").Limit(15).All()
+	list, err := model.Fields("COUNT(value_label) as value, value_label as name").GroupBy("value_label").Order("value DESC").Limit(15).All()
 	gconv.Scan(list, &info)
 	if err != nil {
 		g.Log().Error(err)

@@ -7,6 +7,7 @@ package texu_up
 import (
 	"github.com/gogf/gf/errors/gerror"
 	"github.com/gogf/gf/frame/g"
+	"github.com/gogf/gf/os/gtime"
 )
 
 // AddReq 用于存储新增请求的请求参数
@@ -97,6 +98,7 @@ func DeleteByIds(Ids []int) error {
 		g.Log().Error(err)
 		return gerror.New("删除失败")
 	}
+	gtime.New()
 	return nil
 }
 

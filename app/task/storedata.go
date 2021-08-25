@@ -1,7 +1,6 @@
 package task
 
 import (
-	"fmt"
 	"gfast/app/model/module/listinfo"
 
 	"github.com/gogf/gf/os/gtime"
@@ -158,13 +157,13 @@ func Storedata(data Storeinfo) {
 	listinfo.AddSaveadd(&entity)
 
 	// entity.SpRecordSpStatus = data.Info.SpRecord
-	fmt.Println("....................................77777777777777777")
+	// fmt.Println("....................................77777777777777777")
 	// var test listinfo.SelectPageReq
 	// test.Commentcontent = ""
 	// // listinfo.SelectListcat(&test)
 	// // fmt.Println(entity)
 	// listinfo.SelectListdom(&test)
-	fmt.Println("....................................77777777777777777")
+	// fmt.Println("....................................77777777777777777")
 	// fmt.Println(entity.Remarks)
 
 	// fmt.Println(entity.CommentUserid)
@@ -173,5 +172,5 @@ func Storedata(data Storeinfo) {
 
 	// fmt.Println(entity.ValueDescribe)
 	// fmt.Println(entity.ValueLabelSup)
-	fmt.Println("....................................77777777777777777")
+	// fmt.Println("....................................77777777777777777")
 }

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"gfast/app/model/admin/user_online"
 	"gfast/app/service/admin/dict_service"
+
 	"gfast/boot"
 	"io/ioutil"
 	"net/http"
@@ -54,6 +55,9 @@ var Tmstorelist string
 //公共token
 var AccessToken string
 
+// 行管工单
+var Admin_test string
+
 func Getaccess() {
 	// dite, err := dict_service.GetDictWithDataByType("access_token")
 	// 获取 关键信息并且全局
@@ -78,10 +82,13 @@ func Getaccess() {
 
 	// 获取门店工单列表
 	Tmstorelisttest, err := dict_service.GetDictDataById(77)
-
 	Tmstorelist = Tmstorelisttest.DictValue
 
 	// fmt.Println(Corpidtest, Corpsecret1test, Tmvaluetest)
+
+	// 获得行管类门店工单value
+	Tmvaluetest, err := dict_service.GetDictDataById(87)
+	Admin_test = Tmvaluetest.DictValue
 
 	Weixintoken()
 }
@@ -127,6 +134,10 @@ func Weixintoken() {
 
 	// 执行主数据门店递交工单
 	List()
+
+	// 获得行管类门店主数据
+
+	Admin_work()
 
 }
 
