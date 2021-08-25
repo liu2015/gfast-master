@@ -109,6 +109,7 @@ func Admin_data(data Adminlister) {
 
 		}
 
+		// 这里取值应该是颠倒了. entity1.valuelabel 是问题定义标签
 		if v.ID == "Selector-1594172032266" {
 			for _, v1 := range optionstest {
 				for _, v := range v1.Value {
