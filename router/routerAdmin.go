@@ -33,6 +33,8 @@ func init() {
 		group.ALL("/listinfo", new(module.Listinfo))
 		// 特许工单递交
 		group.ALL("/texu_up", new(module.Texu_up))
+		// Uplisttest
+		group.ALL("/uplisttest", new(module.Uplisttest))
 	})
 
 	group.Group("/system", func(group *ghttp.RouterGroup) {
