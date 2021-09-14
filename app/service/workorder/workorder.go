@@ -626,6 +626,7 @@ func Addorder(usertest1 *texu_upModel.AddReq) {
 	fmt.Println("..................")
 	jsontest, err := json.Marshal(&orderlist)
 
+	// 发送请求
 	resp, err := ghttp.Post(url, jsontest)
 
 	if err != nil {
