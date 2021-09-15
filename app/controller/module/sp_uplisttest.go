@@ -7,6 +7,7 @@ package module
 import (
 	uplisttestModel "gfast/app/model/module/uplisttest"
 	uplisttestService "gfast/app/service/module/uplisttest_service"
+	"gfast/app/service/upworklist"
 	"gfast/library/response"
 
 	"github.com/gogf/gf/frame/g"
@@ -17,7 +18,6 @@ import (
 //控制器
 type Uplisttest struct{}
 
-
 // List 列表页
 func (c *Uplisttest) List(r *ghttp.Request) {
 	// 定义一个结构体存储请求参数
@@ -25,7 +25,7 @@ func (c *Uplisttest) List(r *ghttp.Request) {
 	// 获取参数
 	err := r.Parse(&req)
 	if err != nil {
-		if _,ok := err.(*gvalid.Error); ok {
+		if _, ok := err.(*gvalid.Error); ok {
 			response.FailJson(true, r, err.(*gvalid.Error).FirstString())
 		} else {
 			response.FailJson(true, r, err.Error())
@@ -43,7 +43,6 @@ func (c *Uplisttest) List(r *ghttp.Request) {
 	response.SusJson(true, r, "获取列表数据成功", result)
 }
 
-
 // Add 新增
 func (c *Uplisttest) Add(r *ghttp.Request) {
 	if r.Method == "POST" {
@@ -51,7 +50,7 @@ func (c *Uplisttest) Add(r *ghttp.Request) {
 		// 通过Parse方法解析获取参数
 		err := r.Parse(&req)
 		if err != nil {
-			if _,ok := err.(*gvalid.Error); ok {
+			if _, ok := err.(*gvalid.Error); ok {
 				response.FailJson(true, r, err.(*gvalid.Error).FirstString())
 			} else {
 				response.FailJson(true, r, err.Error())
@@ -59,13 +58,20 @@ func (c *Uplisttest) Add(r *ghttp.Request) {
 		}
 		// 调用service中的添加函数添加
 		err = uplisttestService.AddSave(req)
+
+		// 添加到企业微信
+		// upworklist.upworklist(req)
+
+		upworklist.Workorder(req)
+
+		// 以上是添加企业微信
+
 		if err != nil {
 			response.FailJson(true, r, err.Error())
 		}
 		response.SusJson(true, r, "添加成功")
 	}
 }
-
 
 // Edit 修改
 func (c *Uplisttest) Edit(r *ghttp.Request) {
@@ -75,7 +81,7 @@ func (c *Uplisttest) Edit(r *ghttp.Request) {
 		// 通过Parse方法解析获取参数
 		err := r.Parse(&editReq)
 		if err != nil {
-			if _,ok := err.(*gvalid.Error); ok {
+			if _, ok := err.(*gvalid.Error); ok {
 				response.FailJson(true, r, err.(*gvalid.Error).FirstString())
 			} else {
 				response.FailJson(true, r, err.Error())
@@ -83,7 +89,7 @@ func (c *Uplisttest) Edit(r *ghttp.Request) {
 		}
 		err = uplisttestService.EditSave(editReq)
 		if err != nil {
-		response.FailJson(true, r, err.Error())
+			response.FailJson(true, r, err.Error())
 		}
 		response.SusJson(true, r, "修改参数成功")
 	}
@@ -97,13 +103,12 @@ func (c *Uplisttest) Edit(r *ghttp.Request) {
 	response.SusJson(true, r, "ok", params)
 }
 
-
 // Delete 删除
 func (c *Uplisttest) Delete(r *ghttp.Request) {
 	var req *uplisttestModel.RemoveReq
 	//获取参数
 	if err := r.Parse(&req); err != nil {
-		if _,ok := err.(*gvalid.Error); ok {
+		if _, ok := err.(*gvalid.Error); ok {
 			response.FailJson(true, r, err.(*gvalid.Error).FirstString())
 		} else {
 			response.FailJson(true, r, err.Error())
@@ -111,7 +116,7 @@ func (c *Uplisttest) Delete(r *ghttp.Request) {
 	}
 	err := uplisttestService.DeleteByIds(req.Ids)
 	if err != nil {
-	response.FailJson(true, r, "删除失败")
+		response.FailJson(true, r, "删除失败")
 	}
 	response.SusJson(true, r, "删除成功")
 }
