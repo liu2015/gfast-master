@@ -56,7 +56,7 @@ type Value struct {
 	Tips            []interface{} `json:"tips"`
 	Members         []interface{} `json:"members"`
 	Departments     []interface{} `json:"departments"`
-	Files           []Files       `json:"files"`
+	Files           []Files       `json:"files,omitempty"`
 	Children        []interface{} `json:"children"`
 	StatField       []interface{} `json:"stat_field"`
 	Selector        Selector      `json:"selector,omitempty"`
@@ -86,6 +86,14 @@ type SummaryInfo struct {
 }
 type SummaryList struct {
 	SummaryInfo []SummaryInfo `json:"summary_info"`
+}
+
+type Imgaget struct {
+	Errcode   int    `json:"errcode"`
+	Errmsg    string `json:"errmsg"`
+	Type      string `json:"type"`
+	MediaID   string `json:"media_id"`
+	CreatedAt string `json:"created_at"`
 }
 
 // 获得token
@@ -126,6 +134,53 @@ func Addorder(usertest *uplisttest.AddReq) {
 	fmt.Println("1111111111,是不是有传输的结果集合", usertest)
 
 	url := "https://qyapi.weixin.qq.com/cgi-bin/oa/applyevent?" + AccessToken0915
+
+	// 设置上传图片的功能
+	// https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE
+	urlimg := "https://qyapi.weixin.qq.com/cgi-bin/media/upload?" + AccessToken0915 + "&type=image"
+
+	urlimgtest := "media=@file:" + "G:/omvscode/gfast-master/public/resource/" + usertest.Enclosure
+	fmt.Println(urlimgtest)
+
+	respimg, err := ghttp.Post(urlimg, urlimgtest)
+	// client := ghttp.Client{}
+	// response1, _ := client.Header(map[string]string{
+	// 	"Content-Type": "multipart/form-data",
+	// }).Post(url, urlimgtest)
+
+	fmt.Println("7878787", respimg.ReadAllString())
+	wwdd := respimg.ReadAll()
+
+	var Imgaget1 Imgaget
+
+	err23 := json.Unmarshal(wwdd, &Imgaget1)
+
+	if err23 != nil {
+		fmt.Println("没有显示内容")
+		fmt.Println(err23)
+	}
+
+	Contentsimg := new(Contents)
+
+	Contentsimg.Control = "File"
+	Contentsimg.ID = "File-1589781841526"
+	var titleimg Title
+	titleimg.Lang = "zh_CN"
+	titleimg.Text = "照片附件"
+	Contentsimg.Title = append(Contentsimg.Title, titleimg)
+	// 添加value
+	// var Value1 Value
+	Valueimg := new(Value)
+	var fileimg Files
+	fileimg.FileID = Imgaget1.MediaID
+
+	fmt.Println("wwwwwwwwwwwwwwwwwwwwwww")
+	fmt.Println("Imgaget1", Imgaget1)
+	fmt.Println("232123232", Imgaget1.MediaID)
+	Valueimg.Files = append(Valueimg.Files, fileimg)
+	Contentsimg.Value = *Valueimg
+
+	// 以上是实现上传图片的功能
 
 	// var orderlist Franchise1
 	orderlist := new(Franchise1)
@@ -301,7 +356,8 @@ func Addorder(usertest *uplisttest.AddReq) {
 	value6.Selector.Options = append(value6.Selector.Options, options6)
 
 	// 添加appdata主体
-	ApplyData1.Contents = append(ApplyData1.Contents, *Contents1, *Contents2, *Contents3, Contents4, Contents5, Contents6)
+
+	ApplyData1.Contents = append(ApplyData1.Contents, *Contents1, *Contents2, *Contents3, Contents4, Contents5, Contents6, *Contentsimg)
 
 	var sumary1 SummaryList
 
@@ -317,6 +373,7 @@ func Addorder(usertest *uplisttest.AddReq) {
 
 	// 以上组装完整的结构体 然后进行传输到企业微信的准备
 	fmt.Println("7777999999999999999999")
+	fmt.Println("这个是上传的地址", usertest.Enclosure)
 
 	fmt.Println(orderlist)
 	fmt.Println("7777999999999999999999")
