@@ -88,7 +88,7 @@ type SummaryList struct {
 	SummaryInfo []SummaryInfo `json:"summary_info"`
 }
 
-type Imgaget struct {
+type Imgaget1 struct {
 	Errcode   int    `json:"errcode"`
 	Errmsg    string `json:"errmsg"`
 	Type      string `json:"type"`
@@ -139,24 +139,44 @@ func Addorder(usertest *uplisttest.AddReq) {
 	// https://qyapi.weixin.qq.com/cgi-bin/media/upload?access_token=ACCESS_TOKEN&type=TYPE
 	urlimg := "https://qyapi.weixin.qq.com/cgi-bin/media/upload?" + AccessToken0915 + "&type=image"
 
-	urlimgtest := "media=@file:" + "G:/omvscode/gfast-master/public/resource/" + usertest.Enclosure
+	// urlimgtest := "media=@file:" + "G:/omvscode/gfast-master/public/resource/" + usertest.Enclosure
+	// fmt.Println(urlimgtest)
+
+	urlimgtest := "media=@file:" + "/home/liu/0916/gfast-master/public/resource/" + usertest.Enclosure
 	fmt.Println(urlimgtest)
+	// /home/liu/0916/gfast-master/public/
 
-	respimg, err := ghttp.Post(urlimg, urlimgtest)
-	// client := ghttp.Client{}
-	// response1, _ := client.Header(map[string]string{
-	// 	"Content-Type": "multipart/form-data",
-	// }).Post(url, urlimgtest)
+	respimg, err333 := ghttp.Post(urlimg, urlimgtest)
+	defer respimg.Close()
+	if err333 != nil {
+		fmt.Println(err333)
+	}
+	var tedd []byte
+	//成功了,因为时切片，所以需要添加切片的方式增加 内容
+	tedd=append(respimg.ReadAll())
 
-	fmt.Println("7878787", respimg.ReadAllString())
-	wwdd := respimg.ReadAll()
 
-	var Imgaget1 Imgaget
+	fmt.Println(tedd)
+	//成功了
+	jsonrtest := tedd
+	fmt.Println("打印出jsontest内容", jsonrtest)
 
-	err23 := json.Unmarshal(wwdd, &Imgaget1)
+
+	// rest, err333 := ioutil.ReadAll(respimg.Body)
+
+	fmt.Println("打印结果", tedd)
+
+	var Imgaget12 Imgaget1
+	// err23 := json.Unmarshal(rest, &Imgaget1)
+	fmt.Println("wwwwwwwwwwwwwwwwwwwwwww")
+	err23 := json.Unmarshal(tedd, &Imgaget12)
+	fmt.Println("Imgaget12.MediaID", Imgaget12.MediaID)
+	// err23 := gconv.Scan(rest, &Imgaget12)
 
 	if err23 != nil {
 		fmt.Println("没有显示内容")
+		fmt.Println(Imgaget12)
+
 		fmt.Println(err23)
 	}
 
@@ -169,16 +189,12 @@ func Addorder(usertest *uplisttest.AddReq) {
 	titleimg.Text = "照片附件"
 	Contentsimg.Title = append(Contentsimg.Title, titleimg)
 	// 添加value
-	// var Value1 Value
-	Valueimg := new(Value)
+	var Valueimg Value
 	var fileimg Files
-	fileimg.FileID = Imgaget1.MediaID
+	fileimg.FileID = Imgaget12.MediaID
 
-	fmt.Println("wwwwwwwwwwwwwwwwwwwwwww")
-	fmt.Println("Imgaget1", Imgaget1)
-	fmt.Println("232123232", Imgaget1.MediaID)
 	Valueimg.Files = append(Valueimg.Files, fileimg)
-	Contentsimg.Value = *Valueimg
+	Contentsimg.Value = Valueimg
 
 	// 以上是实现上传图片的功能
 

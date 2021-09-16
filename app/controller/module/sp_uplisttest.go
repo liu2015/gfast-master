@@ -45,6 +45,7 @@ func (c *Uplisttest) List(r *ghttp.Request) {
 
 // Add 新增
 func (c *Uplisttest) Add(r *ghttp.Request) {
+	var teest *uplisttestModel.AddReq
 	if r.Method == "POST" {
 		var req *uplisttestModel.AddReq
 		// 通过Parse方法解析获取参数
@@ -62,15 +63,23 @@ func (c *Uplisttest) Add(r *ghttp.Request) {
 		// 添加到企业微信
 		// upworklist.upworklist(req)
 
-		upworklist.Workorder(req)
-
+		// upworklist.Workorder(req)
+		// 获取保存的数据
+		teest = req
+		// 避免图片没有保存导致数据无法释放，而无法生效
+		upworklist.Workorder(teest)
 		// 以上是添加企业微信
 
 		if err != nil {
 			response.FailJson(true, r, err.Error())
 		}
 		response.SusJson(true, r, "添加成功")
+
 	}
+
+	// 添加到企业微信
+	// upworklist.upworklist(req)
+
 }
 
 // Edit 修改
