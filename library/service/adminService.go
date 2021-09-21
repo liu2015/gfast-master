@@ -19,12 +19,12 @@ func AdminLogin(r *ghttp.Request) (string, interface{}) {
 
 	data := r.GetFormMapStrStr()
 	rules := map[string]string{
-		"idValueC": "required",
+		// "idValueC": "required",
 		"username": "required",
 		"password": "required",
 	}
 	msgs := map[string]interface{}{
-		"idValueC": "请输入验证码",
+		// "idValueC": "请输入验证码",
 		"username": "账号不能为空",
 		"password": "密码不能为空",
 	}
@@ -32,10 +32,10 @@ func AdminLogin(r *ghttp.Request) (string, interface{}) {
 	if e := gvalid.CheckMap(data, rules, msgs); e != nil {
 		r.Response.WriteJsonExit(gtoken.Fail(e.String()))
 	}
-	//判断验证码是否正确
-	if !VerifyString(data["idKeyC"], data["idValueC"]) {
-		r.Response.WriteJsonExit(gtoken.Fail("验证码输入错误"))
-	}
+	// //判断验证码是否正确
+	// if !VerifyString(data["idKeyC"], data["idValueC"]) {
+	// 	r.Response.WriteJsonExit(gtoken.Fail("验证码输入错误"))
+	// }
 	password := EncryptData(data["password"])
 	var keys string
 	if AdminMultiLogin {

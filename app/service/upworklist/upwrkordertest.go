@@ -142,9 +142,11 @@ func Addorder(usertest *uplisttest.AddReq) {
 	// urlimgtest := "media=@file:" + "G:/omvscode/gfast-master/public/resource/" + usertest.Enclosure
 	// fmt.Println(urlimgtest)
 
-	urlimgtest := "media=@file:" + "/home/liu/0916/gfast-master/public/resource/" + usertest.Enclosure
-	fmt.Println(urlimgtest)
+	urlimgtest := "media=@file:" + "/root/gfast-master/public/resource/" + usertest.Enclosure
+	// fmt.Println(urlimgtest)
 	// /home/liu/0916/gfast-master/public/
+	// /home/liu/0916/gfast-master/public/resource/
+	//G:\omvscode\gfast-master\public\resource\pub_upload\2021-09-16
 
 	respimg, err333 := ghttp.Post(urlimg, urlimgtest)
 	defer respimg.Close()
@@ -153,14 +155,12 @@ func Addorder(usertest *uplisttest.AddReq) {
 	}
 	var tedd []byte
 	//成功了,因为时切片，所以需要添加切片的方式增加 内容
-	tedd=append(respimg.ReadAll())
-
+	tedd = append(respimg.ReadAll())
 
 	fmt.Println(tedd)
 	//成功了
 	jsonrtest := tedd
 	fmt.Println("打印出jsontest内容", jsonrtest)
-
 
 	// rest, err333 := ioutil.ReadAll(respimg.Body)
 
